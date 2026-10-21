@@ -11,7 +11,7 @@
 <meta name="description" content="CPR app to save lives - works offline">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'></text></svg>">
 
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -85,14 +85,14 @@
   <div class="subtitle" data-i18n="subtitle">Cardio-Emergencia</div>
   
   <button class="btn btn-sos" onclick="showView('sos'); startSOS()">
-    <span data-i18n="emergency">🆘 EMERGENCIA</span><br>
+    <span data-i18n="emergency"> EMERGENCIA</span><br>
     <small style="font-size:0.7em;font-weight:normal" data-i18n="emergencySub">Alguien no responde</small>
   </button>
   <button class="btn btn-learn" onclick="showView('learn')" data-i18n="learn">📚 APRENDER A SALVAR VIDAS</button>
   <button class="btn btn-secondary" onclick="showView('settings')" data-i18n="settings">⚙️ Configuración y País</button>
   <button class="btn btn-secondary" onclick="showView('dea')" data-i18n="dea">📍 Buscar DEA Cercano</button>
   
-  <div class="app-footer" data-i18n="footer">v3.1 PWA · Funciona sin internet · No sustituye curso certificado</div>
+  <div class="app-footer" data-i18n="footer">v3.2 PWA · Funciona sin internet · No sustituye curso certificado</div>
 </div>
 
 <div id="sos" class="view">
@@ -116,7 +116,7 @@
   
   <div class="sos-controls">
     <button class="sos-btn sos-btn-prev" onclick="prevStep()">←</button>
-    <button class="sos-btn sos-btn-call" onclick="callEmergency()"> <span id="emergencyNumDisplay">911</span></button>
+    <button class="sos-btn sos-btn-call" onclick="callEmergency()">📞 <span id="emergencyNumDisplay">911</span></button>
     <button class="sos-btn sos-btn-next" onclick="nextStep()">→</button>
   </div>
 </div>
@@ -136,7 +136,7 @@
   </div>
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
     <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn3Title">3. Posición de manos</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn3Text">Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos.</p>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn3Text">Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos.</p>
   </div>
   <div style="background:#2d1f00;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #ff9800">
     <h3 style="color:#ff9800;margin-bottom:8px" data-i18n="learn4Title">💡 ¿Y el boca a boca?</h3>
@@ -161,13 +161,13 @@
   <div class="settings-row">
     <label data-i18n="emergencyLabel">🌍 Número de Emergencia</label>
     <select id="countrySelect" onchange="updateEmergencyNumber()">
-      <option value="911">🇺🇸 USA / 🇽 México / 🇨🇴 Colombia - 911</option>
-      <option value="112">🇪🇸 España / 🇪🇺 Europa - 112</option>
+      <option value="911">🇺🇸 USA / 🇲🇽 México / 🇨 Colombia - 911</option>
+      <option value="112">🇪 España / 🇪🇺 Europa - 112</option>
       <option value="106">🇵🇪 Perú - 106 (SAMU)</option>
-      <option value="116">🇵 Perú - 116 (Bomberos)</option>
+      <option value="116">🇵🇪 Perú - 116 (Bomberos)</option>
       <option value="065">🇦🇷 Argentina - 065 (SAME)</option>
       <option value="131">🇨🇱 Chile - 131 (Ambulancia)</option>
-      <option value="133">🇨 Chile - 133 (Carabineros)</option>
+      <option value="133">🇱 Chile - 133 (Carabineros)</option>
       <option value="123">🇨🇴 Colombia - 123</option>
       <option value="999">🇬🇧 Reino Unido - 999</option>
     </select>
@@ -203,10 +203,9 @@
   <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center" data-i18n="deaFooter">Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.</p>
 </div>
 
-<div id="installBanner" onclick="installApp()" data-i18n="installBanner"> Toca aquí para instalar Salvador C.E. como app</div>
+<div id="installBanner" onclick="installApp()" data-i18n="installBanner">📲 Toca aquí para instalar Salvador C.E. como app</div>
 
 <script>
-  // ===== TRADUCCIONES CON DETALLES CLÍNICOS RESTAURADOS =====
   const translations = {
     es: {
       subtitle: "Cardio-Emergencia",
@@ -215,7 +214,7 @@
       learn: " APRENDER A SALVAR VIDAS",
       settings: "⚙️ Configuración y País",
       dea: "📍 Buscar DEA Cercano",
-      footer: "v3.1 PWA · Funciona sin internet · No sustituye curso certificado",
+      footer: "v3.2 PWA · Funciona sin internet · No sustituye curso certificado",
       exit: "← Salir",
       compressions: "Compresiones",
       back: "← Volver",
@@ -227,48 +226,27 @@
       learn2Text: "Si estás solo, llama PRIMERO. Si hay más gente, grita \"¡Tú, llama y trae un DEA!\"",
       learn3Title: "3. Posición de manos",
       learn3Text: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos.",
-      learn4Title: " ¿Y el boca a boca?",
+      learn4Title: "💡 ¿Y el boca a boca?",
       learn4Text: "Si no quieres, NO LO HAGAS. Las <strong>compresiones solas</strong> son muy efectivas en adultos. ¡Actúa!",
       practice: "🆘 PRACTICAR MODO EMERGENCIA",
-      settingsTitle: "⚙️ Configuración",
-      languageLabel: "🌐 Idioma",
-      emergencyLabel: "🌍 Número de Emergencia",
+      settingsTitle: "️ Configuración",
+      languageLabel: " Idioma",
+      emergencyLabel: " Número de Emergencia",
       voiceLabel: "🗣️ Guía por Voz",
       voiceOn: "Activada",
       voiceOff: "Desactivada",
       installTip: "💡 <strong>Instalar como app:</strong> En el menú del navegador selecciona \"Agregar a pantalla de inicio\" o \"Instalar app\". Una vez instalada, funcionará <strong>sin internet</strong>.",
-      deaTitle: " Desfibriladores (DEA) Cercanos",
+      deaTitle: "📍 Desfibriladores (DEA) Cercanos",
       deaSub: "Usando tu ubicación actual...",
       updateLocation: "🔄 Actualizar Ubicación",
       deaFooter: "Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.",
       installBanner: "📲 Toca aquí para instalar Salvador C.E. como app",
       steps: [
-        { 
-          icon: "👀", 
-          text: "Verifica si responde", 
-          detail: "Toca sus hombros fuerte y grita: '¿Estás bien?' Mira si respira (máx 10 segundos)." 
-        },
-        { 
-          icon: "📞", 
-          text: "Pide ayuda YA", 
-          detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." 
-        },
-        { 
-          icon: "👐", 
-          text: "Posición de manos", 
-          detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos." 
-        },
-        { 
-          icon: "💓", 
-          text: "¡COMPRESIONES!", 
-          detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", 
-          metronome: true 
-        },
-        { 
-          icon: "🔁", 
-          text: "No te detengas", 
-          detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." 
-        }
+        { icon: "", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: '¿Estás bien?' Mira si respira (MÁXIMO 10 segundos)." },
+        { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." },
+        { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos." },
+        { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
+        { icon: "🔁", text: "No te detengas", detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." }
       ]
     },
     en: {
@@ -278,7 +256,7 @@
       learn: "📚 LEARN TO SAVE LIVES",
       settings: "⚙️ Settings & Country",
       dea: "📍 Find Nearby AED",
-      footer: "v3.1 PWA · Works offline · Does not replace certified course",
+      footer: "v3.2 PWA · Works offline · Does not replace certified course",
       exit: "← Exit",
       compressions: "Compressions",
       back: "← Back",
@@ -306,44 +284,21 @@
       deaFooter: "Map by OpenStreetMap. Requires internet only to load the map.",
       installBanner: "📲 Tap here to install Salvador C.E. as an app",
       steps: [
-        { 
-          icon: "👀", 
-          text: "Check if responsive", 
-          detail: "Tap their shoulders hard and shout: 'Are you okay?' Check if breathing (max 10 seconds)." 
-        },
-        { 
-          icon: "📞", 
-          text: "Call for help NOW", 
-          detail: "Shout for help. Call emergency. Activate speakerphone. Ask for an AED." 
-        },
-        { 
-          icon: "👐", 
-          text: "Hand Position", 
-          detail: "Heel of hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight." 
-        },
-        { 
-          icon: "💓", 
-          text: "COMPRESS!", 
-          detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", 
-          metronome: true 
-        },
-        { 
-          icon: "🔁", 
-          text: "Don't stop", 
-          detail: "Continue until ambulance arrives, person responds, or you're exhausted. Switch every 2 minutes." 
-        }
+        { icon: "👀", text: "Check if responsive", detail: "Tap their shoulders hard and shout: 'Are you okay?' Check if breathing (MAXIMUM 10 seconds)." },
+        { icon: "📞", text: "Call for help NOW", detail: "Shout for help. Call emergency. Activate speakerphone. Ask for an AED." },
+        { icon: "👐", text: "Hand Position", detail: "Heel of hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight." },
+        { icon: "💓", text: "COMPRESS!", detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", metronome: true },
+        { icon: "🔁", text: "Don't stop", detail: "Continue until ambulance arrives, person responds, or you're exhausted. Switch every 2 minutes." }
       ]
     }
   };
 
-  // ===== REGISTRO DEL SERVICE WORKER (MODO OFFLINE) =====
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
       .then(reg => console.log('SW registrado', reg.scope))
       .catch(err => console.log('SW error', err));
   }
 
-  // ===== LÓGICA DE INSTALACIÓN PWA =====
   let deferredPrompt;
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
@@ -361,7 +316,6 @@
     }
   }
 
-  // ===== ESTADO DE LA APP =====
   let currentLang = localStorage.getItem('salvador_lang') || 'es';
   let currentStep = 0;
   let metronomeInterval = null;
@@ -380,17 +334,11 @@
 
   function applyLanguage() {
     const t = translations[currentLang];
-    
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (t[key]) {
-        el.innerHTML = t[key];
-      }
+      if (t[key]) el.innerHTML = t[key];
     });
-    
-    if (document.getElementById('sos').classList.contains('active')) {
-      updateStep();
-    }
+    if (document.getElementById('sos').classList.contains('active')) updateStep();
   }
 
   function updateLanguage() {
@@ -444,43 +392,18 @@
     document.getElementById('stepText').textContent = step.text;
     document.getElementById('stepDetail').textContent = step.detail;
     document.getElementById('stepCounter').textContent = `${currentStep + 1} / ${t.steps.length}`;
-    
     speak(step.text + ". " + step.detail);
-    
     const metro = document.getElementById('metronome');
-    if (step.metronome) {
-      metro.classList.add('active');
-      startMetronome();
-    } else {
-      metro.classList.remove('active');
-      stopMetronome();
-    }
+    if (step.metronome) { metro.classList.add('active'); startMetronome(); }
+    else { metro.classList.remove('active'); stopMetronome(); }
   }
 
-  function nextStep() {
-    const t = translations[currentLang];
-    if (currentStep < t.steps.length - 1) { currentStep++; updateStep(); }
-  }
+  function nextStep() { const t = translations[currentLang]; if (currentStep < t.steps.length - 1) { currentStep++; updateStep(); } }
+  function prevStep() { if (currentStep > 0) { currentStep--; updateStep(); } }
 
-  function prevStep() {
-    if (currentStep > 0) { currentStep--; updateStep(); }
-  }
-
-  function startSOS() {
-    currentStep = 0;
-    compCount = 0;
-    document.getElementById('compCount').textContent = '0';
-    updateStep();
-  }
-
-  function stopSOS() {
-    stopMetronome();
-    window.speechSynthesis.cancel();
-  }
-
-  function callEmergency() {
-    window.location.href = `tel:${emergencyNumber}`;
-  }
+  function startSOS() { currentStep = 0; compCount = 0; document.getElementById('compCount').textContent = '0'; updateStep(); }
+  function stopSOS() { stopMetronome(); window.speechSynthesis.cancel(); }
+  function callEmergency() { window.location.href = `tel:${emergencyNumber}`; }
 
   function startMetronome() {
     if (metronomeInterval) return;
@@ -502,13 +425,10 @@
     gain.connect(audioCtx.destination);
     osc.start();
     osc.stop(audioCtx.currentTime + 0.1);
-    
     if (navigator.vibrate) navigator.vibrate(40);
-    
     const ring = document.getElementById('pulseRing');
     ring.classList.add('beat');
     setTimeout(() => ring.classList.remove('beat'), 150);
-    
     compCount++;
     document.getElementById('compCount').textContent = compCount;
   }
@@ -522,25 +442,17 @@
     const map = document.getElementById('deaMap');
     loading.style.display = 'block';
     map.style.display = 'none';
-    
-    if (!navigator.geolocation) {
-      loading.innerHTML = "❌ Your browser does not support geolocation.";
-      return;
-    }
-    
+    if (!navigator.geolocation) { loading.innerHTML = "❌ Tu navegador no soporta geolocalización."; return; }
     navigator.geolocation.getCurrentPosition(
       (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
         const bbox = `${lon-0.01},${lat-0.01},${lon+0.01},${lat+0.01}`;
-        const url = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
-        map.src = url;
+        map.src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
         map.style.display = 'block';
         loading.style.display = 'none';
       },
-      (error) => {
-        loading.innerHTML = `❌ GPS Error: ${error.message}<br><small>Enable location on your device</small>`;
-      },
+      (error) => { loading.innerHTML = `❌ Error de GPS: ${error.message}`; },
       { enableHighAccuracy: true, timeout: 10000 }
     );
   }
