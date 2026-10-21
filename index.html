@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Salvador CE">
-<meta name="description" content="CPR app to save lives - works offline">
+<meta name="description" content="App de RCP para salvar vidas - funciona offline">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
 <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
@@ -42,7 +42,8 @@
   .step-text { font-size: 1.7rem; font-weight: bold; line-height: 1.3; }
   .step-detail { font-size: 1.1rem; color: #ccc; line-height: 1.5; }
   
-  .sos-controls { display: flex; gap: 10px; padding: 30px 0 50px 0; margin-top: 20px; }
+  /* Controles SOS con espacio extra abajo para evitar el banner de Netlify */
+  .sos-controls { display: flex; gap: 10px; padding: 30px 0 60px 0; margin-top: 20px; }
   .sos-btn { flex: 1; padding: 20px 10px; border: none; border-radius: 14px; font-size: 1rem; font-weight: bold; cursor: pointer; min-height: 60px; }
   .sos-btn-prev { background: #333; color: white; }
   .sos-btn-next { background: #ff3b3b; color: white; }
@@ -79,13 +80,14 @@
 </head>
 <body>
 
+<!-- PANTALLA DE INICIO -->
 <div id="home" class="view active">
-  <div class="logo-icon"></div>
+  <div class="logo-icon">🫀</div>
   <h1>SALVADOR <span>C.E.</span></h1>
   <div class="subtitle" data-i18n="subtitle">Cardio-Emergencia</div>
   
   <button class="btn btn-sos" onclick="showView('sos'); startSOS()">
-    <span data-i18n="emergency"> EMERGENCIA</span><br>
+    <span data-i18n="emergency">🆘 EMERGENCIA</span><br>
     <small style="font-size:0.7em;font-weight:normal" data-i18n="emergencySub">Alguien no responde</small>
   </button>
   <button class="btn btn-learn" onclick="showView('learn')" data-i18n="learn">📚 APRENDER A SALVAR VIDAS</button>
@@ -95,6 +97,7 @@
   <div class="app-footer" data-i18n="footer">v3.2 PWA · Funciona sin internet · No sustituye curso certificado</div>
 </div>
 
+<!-- MODO SOS -->
 <div id="sos" class="view">
   <div class="sos-header">
     <button class="btn-back" onclick="stopSOS(); showView('home')" data-i18n="exit">← Salir</button>
@@ -121,6 +124,7 @@
   </div>
 </div>
 
+<!-- MODO APRENDER -->
 <div id="learn" class="view">
   <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
   <h2 style="color:#ff3b3b;margin-bottom:5px" data-i18n="learnTitle">🫀 Aprende con Salvador C.E.</h2>
@@ -146,6 +150,7 @@
   <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()" data-i18n="practice">🆘 PRACTICAR MODO EMERGENCIA</button>
 </div>
 
+<!-- CONFIGURACIÓN -->
 <div id="settings" class="view">
   <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
   <h2 style="color:#1e88e5;margin-bottom:20px" data-i18n="settingsTitle">⚙️ Configuración</h2>
@@ -153,28 +158,28 @@
   <div class="settings-row">
     <label data-i18n="languageLabel">🌐 Idioma</label>
     <select id="languageSelect" onchange="updateLanguage()">
-      <option value="es">🇸 Español</option>
+      <option value="es">🇪🇸 Español</option>
       <option value="en">🇺🇸 English</option>
     </select>
   </div>
   
   <div class="settings-row">
-    <label data-i18n="emergencyLabel"> Número de Emergencia</label>
+    <label data-i18n="emergencyLabel">🌍 Número de Emergencia</label>
     <select id="countrySelect" onchange="updateEmergencyNumber()">
-      <option value="911">🇸 USA / 🇲 México / 🇨🇴 Colombia - 911</option>
-      <option value="112">🇪🇸 España / 🇺 Europa - 112</option>
+      <option value="911">🇺🇸 USA / 🇲🇽 México / 🇨🇴 Colombia - 911</option>
+      <option value="112">🇪🇸 España / 🇪🇺 Europa - 112</option>
       <option value="106">🇵🇪 Perú - 106 (SAMU)</option>
       <option value="116">🇵🇪 Perú - 116 (Bomberos)</option>
-      <option value="065">🇦🇷 Argentina - 065 (SAME)</option>
+      <option value="065">🇷 Argentina - 065 (SAME)</option>
       <option value="131">🇨🇱 Chile - 131 (Ambulancia)</option>
-      <option value="133">🇨🇱 Chile - 133 (Carabineros)</option>
-      <option value="123">🇴 Colombia - 123</option>
-      <option value="999">🇧 Reino Unido - 999</option>
+      <option value="133">🇨 Chile - 133 (Carabineros)</option>
+      <option value="123">🇨🇴 Colombia - 123</option>
+      <option value="999">🇬🇧 Reino Unido - 999</option>
     </select>
   </div>
   
   <div class="settings-row">
-    <label data-i18n="voiceLabel">️ Guía por Voz</label>
+    <label data-i18n="voiceLabel">🗣️ Guía por Voz</label>
     <div class="toggle-voice">
       <label class="switch">
         <input type="checkbox" id="voiceToggle" checked onchange="toggleVoice()">
@@ -185,10 +190,11 @@
   </div>
   
   <p style="color:#666;font-size:0.85rem;margin-top:20px;line-height:1.5" data-i18n="installTip">
-     <strong>Instalar como app:</strong> En el menú del navegador selecciona "Agregar a pantalla de inicio" o "Instalar app". Una vez instalada, funcionará <strong>sin internet</strong>.
+    💡 <strong>Instalar como app:</strong> En el menú del navegador selecciona "Agregar a pantalla de inicio" o "Instalar app". Una vez instalada, funcionará <strong>sin internet</strong>.
   </p>
 </div>
 
+<!-- MAPA DEA -->
 <div id="dea" class="view">
   <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
   <h2 style="color:#1e88e5;margin-bottom:5px" data-i18n="deaTitle">📍 Desfibriladores (DEA) Cercanos</h2>
@@ -206,6 +212,7 @@
 <div id="installBanner" onclick="installApp()" data-i18n="installBanner">📲 Toca aquí para instalar Salvador C.E. como app</div>
 
 <script>
+  // ===== TRADUCCIONES =====
   const translations = {
     es: {
       subtitle: "Cardio-Emergencia",
@@ -213,12 +220,12 @@
       emergencySub: "Alguien no responde",
       learn: "📚 APRENDER A SALVAR VIDAS",
       settings: "⚙️ Configuración y País",
-      dea: " Buscar DEA Cercano",
+      dea: "📍 Buscar DEA Cercano",
       footer: "v3.2 PWA · Funciona sin internet · No sustituye curso certificado",
       exit: "← Salir",
       compressions: "Compresiones",
       back: "← Volver",
-      learnTitle: "🫀 Aprende con Salvador C.E.",
+      learnTitle: " Aprende con Salvador C.E.",
       learnSub: "Domina los fundamentos en 3 minutos",
       learn1Title: "1. ¿Cuándo hacer RCP?",
       learn1Text: "Cuando está inconsciente y NO respira (o solo boquea). Cada minuto sin RCP reduce la supervivencia un 10%.",
@@ -242,7 +249,7 @@
       deaFooter: "Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.",
       installBanner: "📲 Toca aquí para instalar Salvador C.E. como app",
       steps: [
-        { icon: "", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: '¿Estás bien?' Mira si respira (MÁXIMO 10 segundos)." },
+        { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: '¿Estás bien?' Mira si respira (MÁXIMO 10 segundos)." },
         { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." },
         { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos." },
         { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
@@ -254,7 +261,7 @@
       emergency: "🆘 EMERGENCY",
       emergencySub: "Someone is not responding",
       learn: "📚 LEARN TO SAVE LIVES",
-      settings: "⚙️ Settings & Country",
+      settings: "️ Settings & Country",
       dea: "📍 Find Nearby AED",
       footer: "v3.2 PWA · Works offline · Does not replace certified course",
       exit: "← Exit",
@@ -273,8 +280,8 @@
       practice: "🆘 PRACTICE EMERGENCY MODE",
       settingsTitle: "⚙️ Settings",
       languageLabel: "🌐 Language",
-      emergencyLabel: "🌍 Emergency Number",
-      voiceLabel: "🗣️ Voice Guide",
+      emergencyLabel: " Emergency Number",
+      voiceLabel: "️ Voice Guide",
       voiceOn: "Enabled",
       voiceOff: "Disabled",
       installTip: "💡 <strong>Install as app:</strong> In your browser menu select \"Add to Home Screen\" or \"Install app\". Once installed, it will work <strong>without internet</strong>.",
@@ -284,21 +291,23 @@
       deaFooter: "Map by OpenStreetMap. Requires internet only to load the map.",
       installBanner: "📲 Tap here to install Salvador C.E. as an app",
       steps: [
-        { icon: "👀", text: "Check if responsive", detail: "Tap their shoulders hard and shout: 'Are you okay?' Check if breathing (MAXIMUM 10 seconds)." },
+        { icon: "", text: "Check if responsive", detail: "Tap their shoulders hard and shout: 'Are you okay?' Check if breathing (MAXIMUM 10 seconds)." },
         { icon: "📞", text: "Call for help NOW", detail: "Shout for help. Call emergency. Activate speakerphone. Ask for an AED." },
-        { icon: "👐", text: "Hand Position", detail: "Heel of hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight." },
-        { icon: "", text: "COMPRESS!", detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", metronome: true },
+        { icon: "", text: "Hand Position", detail: "Heel of hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight." },
+        { icon: "💓", text: "COMPRESS!", detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", metronome: true },
         { icon: "🔁", text: "Don't stop", detail: "Continue until ambulance arrives, person responds, or you're exhausted. Switch every 2 minutes." }
       ]
     }
   };
 
+  // ===== SERVICE WORKER =====
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
       .then(reg => console.log('SW registrado', reg.scope))
       .catch(err => console.log('SW error', err));
   }
 
+  // ===== INSTALACIÓN PWA =====
   let deferredPrompt;
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
@@ -316,6 +325,7 @@
     }
   }
 
+  // ===== ESTADO =====
   let currentLang = localStorage.getItem('salvador_lang') || 'es';
   let currentStep = 0;
   let metronomeInterval = null;
@@ -452,7 +462,7 @@
         map.style.display = 'block';
         loading.style.display = 'none';
       },
-      (error) => { loading.innerHTML = `❌ Error de GPS: ${error.message}`; },
+      (error) => { loading.innerHTML = ` Error de GPS: ${error.message}`; },
       { enableHighAccuracy: true, timeout: 10000 }
     );
   }
