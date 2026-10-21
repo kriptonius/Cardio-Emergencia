@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Salvador C.E.</title>
+<!-- PWA Meta Tags para instalar en celular -->
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Salvador CE">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF8WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+CiAgICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAAAALAAAAAAQABAAAAjUAAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmDNr3sy5s+fPoEOLHk26tOnTqFOrXs26tevXsGPLnk27tu3buHPr3s27t+/fwIMLH068uPHjyJMrX868ufPn0KNLn069uvXr2LNr3869u/fv4MOL/x/Pvr379/Djy59Pv779+/jz69/Pv7///wAGKOCABBZo4IEIJqjgggw26OCDEEYo4YQUVmjhhRhmqOGGHHbo4YcghijiiCSWaOKJKKao4oostujiizDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRinllFRWaeWVWGap5ZZcdunll2CGKeaYZJZp5plopqnmmmy26eabcMYp55x01mnnnXjmqeeefPbp55+ABirooIQWauihiCaq6KKMNuroo5BGKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwxirrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPHFGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvstNdu++2456777rz37vvvwAcv/PDEF2/88cgnr/zyzDfv/PPQRy/99NRXb/312Gev/fbcd+/99+CHL/745Jdv/vnop6/++uy37/778Mcv//z012///fjnr//+/Pfv//8ABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAH......">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+  body { background: #0a0a0a; color: white; min-height: 100vh; overflow-x: hidden; }
+  .view { display: none; min-height: 100vh; padding: 20px; flex-direction: column; }
+  .view.active { display: flex; }
+  
+  /* INICIO */
+  #home { justify-content: center; align-items: center; gap: 25px; text-align: center; }
+  .logo-icon { width: 90px; height: 90px; background: linear-gradient(135deg, #ff3b3b, #c62828); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 15px 40px rgba(255,59,59,0.4); animation: heartbeat 1.5s infinite; margin: 0 auto; }
+  @keyframes heartbeat { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.08); } 50% { transform: scale(1); } 75% { transform: scale(1.04); } }
+  #home h1 { font-size: 2.5rem; color: white; letter-spacing: 1px; }
+  #home h1 span { color: #ff3b3b; }
+  #home .subtitle { font-size: 0.9rem; color: #aaa; letter-spacing: 3px; text-transform: uppercase; margin-top: 5px; }
+  
+  .btn { width: 100%; max-width: 400px; padding: 30px 20px; border: none; border-radius: 18px; font-size: 1.3rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; margin-bottom: 15px; }
+  .btn:active { transform: scale(0.97); }
+  .btn-sos { background: linear-gradient(135deg, #ff3b3b, #c62828); color: white; box-shadow: 0 10px 30px rgba(255,59,59,0.4); }
+  .btn-learn { background: linear-gradient(135deg, #1e88e5, #1565c0); color: white; box-shadow: 0 10px 30px rgba(30,136,229,0.3); }
+  .btn-secondary { background: #222; color: white; border: 1px solid #444; font-size: 1rem; padding: 15px; }
+  .btn-back { background: #333; color: white; padding: 12px 20px; border-radius: 10px; font-size: 1rem; margin-bottom: 20px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  
+  /* SOS */
+  #sos { background: #000; }
+  .sos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+  .sos-brand { color: #ff3b3b; font-size: 1rem; font-weight: bold; letter-spacing: 1px; }
+  .step-counter { background: #ff3b3b; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
+  .step-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 20px; padding: 10px; }
+  .step-icon { font-size: 5rem; }
+  .step-text { font-size: 1.7rem; font-weight: bold; line-height: 1.3; }
+  .step-detail { font-size: 1.1rem; color: #ccc; line-height: 1.5; }
+  
+  .sos-controls { display: flex; gap: 10px; padding: 15px 0; }
+  .sos-btn { flex: 1; padding: 18px 10px; border: none; border-radius: 14px; font-size: 1rem; font-weight: bold; cursor: pointer; }
+  .sos-btn-prev { background: #333; color: white; }
+  .sos-btn-next { background: #ff3b3b; color: white; }
+  .sos-btn-call { background: #4caf50; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  
+  /* METRÓNOMO */
+  #metronome { display: none; text-align: center; padding: 20px; background: #111; border-radius: 20px; margin: 15px 0; border: 2px solid #ff3b3b; }
+  #metronome.active { display: block; }
+  .bpm-display { font-size: 3.5rem; font-weight: bold; color: #ffeb3b; }
+  .bpm-label { color: #aaa; font-size: 0.9rem; }
+  .compressions-count { font-size: 1.4rem; color: #4caf50; margin-top: 10px; font-weight: bold; }
+  .pulse-ring { width: 90px; height: 90px; border-radius: 50%; background: #ff3b3b; margin: 15px auto; transition: transform 0.1s; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+  .pulse-ring.beat { transform: scale(1.3); background: #ffeb3b; }
+  
+  /* AJUSTES / PAÍS */
+  .settings-row { display: flex; justify-content: space-between; align-items: center; background: #1a1a1a; padding: 15px; border-radius: 12px; margin-bottom: 10px; }
+  .settings-row label { font-size: 1rem; color: #ccc; }
+  .settings-row select { background: #333; color: white; border: 1px solid #555; padding: 8px 12px; border-radius: 8px; font-size: 1rem; }
+  .toggle-voice { display: flex; align-items: center; gap: 10px; }
+  .switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #555; transition: .4s; border-radius: 34px; }
+  .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+  input:checked + .slider { background-color: #4caf50; }
+  input:checked + .slider:before { transform: translateX(22px); }
+
+  /* MAPA DEA */
+  #dea-map-container { flex: 1; border-radius: 15px; overflow: hidden; border: 2px solid #1e88e5; margin: 15px 0; position: relative; background: #111; }
+  #dea-map-container iframe { width: 100%; height: 100%; border: none; }
+  .dea-loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #aaa; text-align: center; }
+  
+  .app-footer { text-align: center; color: #555; font-size: 0.75rem; padding: 20px; margin-top: auto; }
+</style>
+</head>
+<body>
+
+<!-- INICIO -->
+<div id="home" class="view active">
+  <div class="logo-icon">🫀</div>
+  <h1>SALVADOR <span>C.E.</span></h1>
+  <div class="subtitle">Cardio-Emergencia</div>
+  
+  <button class="btn btn-sos" onclick="showView('sos'); startSOS()">🆘 EMERGENCIA<br><small style="font-size:0.7em;font-weight:normal">Alguien no responde</small></button>
+  <button class="btn btn-learn" onclick="showView('learn')">📚 APRENDER A SALVAR VIDAS</button>
+  <button class="btn btn-secondary" onclick="showView('settings')">⚙️ Configuración y País</button>
+  <button class="btn btn-secondary" onclick="showView('dea')">📍 Buscar DEA Cercano</button>
+  
+  <div class="app-footer">v2.0 · Funciona sin internet · No sustituye curso certificado</div>
+</div>
+
+<!-- MODO SOS -->
+<div id="sos" class="view">
+  <div class="sos-header">
+    <button class="btn-back" onclick="stopSOS(); showView('home')">← Salir</button>
+    <span class="sos-brand">SALVADOR C.E.</span>
+    <span class="step-counter" id="stepCounter">1 / 5</span>
+  </div>
+  
+  <div class="step-content">
+    <div class="step-icon" id="stepIcon">👀</div>
+    <div class="step-text" id="stepText">Verifica si responde</div>
+    <div class="step-detail" id="stepDetail">Toca sus hombros fuerte y grita: "¿Estás bien?"</div>
+  </div>
+  
+  <div id="metronome">
+    <div class="pulse-ring" id="pulseRing">💓</div>
+    <div class="bpm-display">110 <span class="bpm-label">BPM</span></div>
+    <div class="compressions-count">Compresiones: <span id="compCount">0</span></div>
+  </div>
+  
+  <div class="sos-controls">
+    <button class="sos-btn sos-btn-prev" onclick="prevStep()">←</button>
+    <button class="sos-btn sos-btn-call" onclick="callEmergency()">📞 <span id="emergencyNumDisplay">911</span></button>
+    <button class="sos-btn sos-btn-next" onclick="nextStep()">→</button>
+  </div>
+</div>
+
+<!-- APRENDER -->
+<div id="learn" class="view">
+  <button class="btn-back" onclick="showView('home')">← Volver</button>
+  <h2 style="color:#ff3b3b;margin-bottom:5px">🫀 Aprende con Salvador C.E.</h2>
+  <p style="color:#aaa;font-size:0.9rem;margin-bottom:20px">Domina los fundamentos en 3 minutos</p>
+  
+  <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
+    <h3 style="color:#1e88e5;margin-bottom:8px">1. ¿Cuándo hacer RCP?</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Cuando está inconsciente y NO respira (o solo boquea). Cada minuto sin RCP reduce la supervivencia un 10%.</p>
+  </div>
+  <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
+    <h3 style="color:#1e88e5;margin-bottom:8px">2. Llama a Emergencias</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Si estás solo, llama PRIMERO. Si hay más gente, grita "¡Tú, llama y trae un DEA!"</p>
+  </div>
+  <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
+    <h3 style="color:#1e88e5;margin-bottom:8px">3. Posición de manos</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos.</p>
+  </div>
+  <div style="background:#2d1f00;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #ff9800">
+    <h3 style="color:#ff9800;margin-bottom:8px">💡 ¿Y el boca a boca?</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Si no quieres, NO LO HAGAS. Las <strong>compresiones solas</strong> son muy efectivas en adultos. ¡Actúa!</p>
+  </div>
+  
+  <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()">🆘 PRACTICAR MODO EMERGENCIA</button>
+</div>
+
+<!-- CONFIGURACIÓN -->
+<div id="settings" class="view">
+  <button class="btn-back" onclick="showView('home')">← Volver</button>
+  <h2 style="color:#1e88e5;margin-bottom:20px">⚙️ Configuración</h2>
+  
+  <div class="settings-row">
+    <label>🌍 Número de Emergencia</label>
+    <select id="countrySelect" onchange="updateEmergencyNumber()">
+      <option value="911">🇺🇸/🇲🇽/🇨🇴 911</option>
+      <option value="112">🇪🇸/🇪🇺 112</option>
+      <option value="065">🇦🇷 065 (SAME)</option>
+      <option value="131">🇨🇱 131</option>
+      <option value="133">🇨🇱 133</option>
+      <option value="123">🇨🇴 123</option>
+      <option value="999">🇬🇧 999</option>
+    </select>
+  </div>
+  
+  <div class="settings-row">
+    <label>🗣️ Guía por Voz</label>
+    <div class="toggle-voice">
+      <label class="switch">
+        <input type="checkbox" id="voiceToggle" checked onchange="toggleVoice()">
+        <span class="slider"></span>
+      </label>
+      <span id="voiceStatus" style="font-size:0.9rem;color:#4caf50">Activada</span>
+    </div>
+  </div>
+  
+  <p style="color:#666;font-size:0.85rem;margin-top:20px;line-height:1.5">
+    💡 <strong>Tip PWA:</strong> En tu celular, usa el menú del navegador y selecciona "Agregar a pantalla de inicio" para usar Salvador C.E. como una app real sin barra de navegación.
+  </p>
+</div>
+
+<!-- MAPA DEA -->
+<div id="dea" class="view">
+  <button class="btn-back" onclick="showView('home')">← Volver</button>
+  <h2 style="color:#1e88e5;margin-bottom:5px">📍 Desfibriladores (DEA) Cercanos</h2>
+  <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Usando tu ubicación actual...</p>
+  
+  <div id="dea-map-container">
+    <div class="dea-loading" id="deaLoading">📡 Obteniendo ubicación...<br><small>Acepta los permisos de GPS</small></div>
+    <iframe id="deaMap" style="display:none;" allow="geolocation"></iframe>
+  </div>
+  
+  <button class="btn btn-secondary" onclick="findDEA()">🔄 Actualizar Ubicación</button>
+  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center">Mapa proporcionado por OpenStreetMap. Verifica siempre la disponibilidad del equipo.</p>
+</div>
+
+<script>
+  // ESTADO DE LA APP
+  const steps = [
+    { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: ¿Estás bien? Mira si respira." },
+    { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." },
+    { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos." },
+    { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
+    { icon: "🔁", text: "No te detengas", detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." }
+  ];
+  
+  let currentStep = 0;
+  let metronomeInterval = null;
+  let audioCtx = null;
+  let compCount = 0;
+  let emergencyNumber = localStorage.getItem('salvador_emergency') || '911';
+  let voiceEnabled = localStorage.getItem('salvador_voice') !== 'false'; // true por defecto
+  
+  // INICIALIZACIÓN
+  document.getElementById('countrySelect').value = emergencyNumber;
+  document.getElementById('emergencyNumDisplay').textContent = emergencyNumber;
+  document.getElementById('voiceToggle').checked = voiceEnabled;
+  updateVoiceStatus();
+
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (id === 'dea') findDEA();
+    if (id !== 'sos') stopSOS();
+  }
+
+  function updateEmergencyNumber() {
+    emergencyNumber = document.getElementById('countrySelect').value;
+    localStorage.setItem('salvador_emergency', emergencyNumber);
+    document.getElementById('emergencyNumDisplay').textContent = emergencyNumber;
+  }
+
+  function toggleVoice() {
+    voiceEnabled = document.getElementById('voiceToggle').checked;
+    localStorage.setItem('salvador_voice', voiceEnabled);
+    updateVoiceStatus();
+    if (!voiceEnabled) window.speechSynthesis.cancel();
+  }
+
+  function updateVoiceStatus() {
+    document.getElementById('voiceStatus').textContent = voiceEnabled ? "Activada" : "Desactivada";
+    document.getElementById('voiceStatus').style.color = voiceEnabled ? "#4caf50" : "#ff3b3b";
+  }
+
+  function speak(text) {
+    if (!voiceEnabled || !('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'es-ES';
+    utterance.rate = 1.1;
+    utterance.pitch = 1;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function updateStep() {
+    const step = steps[currentStep];
+    document.getElementById('stepIcon').textContent = step.icon;
+    document.getElementById('stepText').textContent = step.text;
+    document.getElementById('stepDetail').textContent = step.detail;
+    document.getElementById('stepCounter').textContent = `${currentStep + 1} / ${steps.length}`;
+    
+    speak(step.text + ". " + step.detail);
+    
+    const metro = document.getElementById('metronome');
+    if (step.metronome) {
+      metro.classList.add('active');
+      startMetronome();
+    } else {
+      metro.classList.remove('active');
+      stopMetronome();
+    }
+  }
+
+  function nextStep() {
+    if (currentStep < steps.length - 1) { currentStep++; updateStep(); }
+  }
+
+  function prevStep() {
+    if (currentStep > 0) { currentStep--; updateStep(); }
+  }
+
+  function startSOS() {
+    currentStep = 0;
+    compCount = 0;
+    document.getElementById('compCount').textContent = '0';
+    updateStep();
+  }
+
+  function stopSOS() {
+    stopMetronome();
+    window.speechSynthesis.cancel();
+  }
+
+  function callEmergency() {
+    window.location.href = `tel:${emergencyNumber}`;
+  }
+
+  // METRÓNOMO
+  function startMetronome() {
+    if (metronomeInterval) return;
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const bpm = 110;
+    const interval = 60000 / bpm;
+    playBeat();
+    metronomeInterval = setInterval(playBeat, interval);
+  }
+
+  function playBeat() {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.frequency.value = 880;
+    osc.type = 'sine';
+    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.1);
+    
+    if (navigator.vibrate) navigator.vibrate(40);
+    
+    const ring = document.getElementById('pulseRing');
+    ring.classList.add('beat');
+    setTimeout(() => ring.classList.remove('beat'), 150);
+    
+    compCount++;
+    document.getElementById('compCount').textContent = compCount;
+  }
+
+  function stopMetronome() {
+    if (metronomeInterval) { clearInterval(metronomeInterval); metronomeInterval = null; }
+  }
+
+  // MAPA DEA (Geolocalización + OpenStreetMap)
+  function findDEA() {
+    const loading = document.getElementById('deaLoading');
+    const map = document.getElementById('deaMap');
+    loading.style.display = 'block';
+    map.style.display = 'none';
+    
+    if (!navigator.geolocation) {
+      loading.innerHTML = "❌ Tu navegador no soporta geolocalización.";
+      return;
+    }
+    
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        // OpenStreetMap embed con marcador en la ubicación del usuario
+        const bbox = `${lon-0.01},${lat-0.01},${lon+0.01},${lat+0.01}`;
+        const url = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
+        map.src = url;
+        map.style.display = 'block';
+        loading.style.display = 'none';
+      },
+      (error) => {
+        loading.innerHTML = `❌ Error de GPS: ${error.message}<br><small>Activa la ubicación en tu celular</small>`;
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  }
+</script>
+</body>
+</html>
