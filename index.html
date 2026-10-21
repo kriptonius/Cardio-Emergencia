@@ -10,8 +10,8 @@
 <meta name="apple-mobile-web-app-title" content="Salvador CE">
 <meta name="description" content="CPR app to save lives - works offline">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫀</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'></text></svg>">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
 
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -85,73 +85,73 @@
   <div class="subtitle" data-i18n="subtitle">Cardio-Emergencia</div>
   
   <button class="btn btn-sos" onclick="showView('sos'); startSOS()">
-    <span data-i18n="emergency"> EMERGENCY</span><br>
-    <small style="font-size:0.7em;font-weight:normal" data-i18n="emergencySub">Someone is not responding</small>
+    <span data-i18n="emergency">🆘 EMERGENCIA</span><br>
+    <small style="font-size:0.7em;font-weight:normal" data-i18n="emergencySub">Alguien no responde</small>
   </button>
-  <button class="btn btn-learn" onclick="showView('learn')" data-i18n="learn">📚 LEARN TO SAVE LIVES</button>
-  <button class="btn btn-secondary" onclick="showView('settings')" data-i18n="settings">⚙️ Settings & Country</button>
-  <button class="btn btn-secondary" onclick="showView('dea')" data-i18n="dea">📍 Find Nearby AED</button>
+  <button class="btn btn-learn" onclick="showView('learn')" data-i18n="learn">📚 APRENDER A SALVAR VIDAS</button>
+  <button class="btn btn-secondary" onclick="showView('settings')" data-i18n="settings">⚙️ Configuración y País</button>
+  <button class="btn btn-secondary" onclick="showView('dea')" data-i18n="dea">📍 Buscar DEA Cercano</button>
   
-  <div class="app-footer" data-i18n="footer">v3.0 PWA · Works offline · Does not replace certified course</div>
+  <div class="app-footer" data-i18n="footer">v3.1 PWA · Funciona sin internet · No sustituye curso certificado</div>
 </div>
 
 <div id="sos" class="view">
   <div class="sos-header">
-    <button class="btn-back" onclick="stopSOS(); showView('home')" data-i18n="exit">← Exit</button>
+    <button class="btn-back" onclick="stopSOS(); showView('home')" data-i18n="exit">← Salir</button>
     <span class="sos-brand">SALVADOR C.E.</span>
     <span class="step-counter" id="stepCounter">1 / 5</span>
   </div>
   
   <div class="step-content">
-    <div class="step-icon" id="stepIcon">👀</div>
-    <div class="step-text" id="stepText">Check if responsive</div>
-    <div class="step-detail" id="stepDetail">Tap their shoulders hard and shout: "Are you okay?"</div>
+    <div class="step-icon" id="stepIcon"></div>
+    <div class="step-text" id="stepText">Verifica si responde</div>
+    <div class="step-detail" id="stepDetail">Toca sus hombros fuerte y grita: "¿Estás bien?"</div>
   </div>
   
   <div id="metronome">
     <div class="pulse-ring" id="pulseRing">💓</div>
     <div class="bpm-display">110 <span class="bpm-label">BPM</span></div>
-    <div class="compressions-count"><span data-i18n="compressions">Compressions</span>: <span id="compCount">0</span></div>
+    <div class="compressions-count"><span data-i18n="compressions">Compresiones</span>: <span id="compCount">0</span></div>
   </div>
   
   <div class="sos-controls">
     <button class="sos-btn sos-btn-prev" onclick="prevStep()">←</button>
-    <button class="sos-btn sos-btn-call" onclick="callEmergency()">📞 <span id="emergencyNumDisplay">911</span></button>
+    <button class="sos-btn sos-btn-call" onclick="callEmergency()"> <span id="emergencyNumDisplay">911</span></button>
     <button class="sos-btn sos-btn-next" onclick="nextStep()">→</button>
   </div>
 </div>
 
 <div id="learn" class="view">
-  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Back</button>
-  <h2 style="color:#ff3b3b;margin-bottom:5px" data-i18n="learnTitle">🫀 Learn with Salvador C.E.</h2>
-  <p style="color:#aaa;font-size:0.9rem;margin-bottom:20px" data-i18n="learnSub">Master the basics in 3 minutes</p>
+  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
+  <h2 style="color:#ff3b3b;margin-bottom:5px" data-i18n="learnTitle">🫀 Aprende con Salvador C.E.</h2>
+  <p style="color:#aaa;font-size:0.9rem;margin-bottom:20px" data-i18n="learnSub">Domina los fundamentos en 3 minutos</p>
   
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
-    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn1Title">1. When to do CPR?</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn1Text">When someone is unconscious and NOT breathing (or only gasping). Every minute without CPR reduces survival by 10%.</p>
+    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn1Title">1. ¿Cuándo hacer RCP?</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn1Text">Cuando está inconsciente y NO respira (o solo boquea). Cada minuto sin RCP reduce la supervivencia un 10%.</p>
   </div>
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
-    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn2Title">2. Call Emergency Services</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn2Text">If you're alone, call FIRST. If there are others, shout "You, call emergency and bring an AED!"</p>
+    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn2Title">2. Llama a Emergencias</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn2Text">Si estás solo, llama PRIMERO. Si hay más gente, grita "¡Tú, llama y trae un DEA!"</p>
   </div>
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
-    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn3Title">3. Hand Position</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn3Text">Heel of one hand in the CENTER of the chest. Other hand on top, fingers interlaced. Arms straight.</p>
+    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn3Title">3. Posición de manos</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn3Text">Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos.</p>
   </div>
   <div style="background:#2d1f00;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #ff9800">
-    <h3 style="color:#ff9800;margin-bottom:8px" data-i18n="learn4Title">💡 What about mouth-to-mouth?</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn4Text">If you don't want to, DON'T DO IT. <strong>Hands-only CPR</strong> is very effective for adults. Act!</p>
+    <h3 style="color:#ff9800;margin-bottom:8px" data-i18n="learn4Title">💡 ¿Y el boca a boca?</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn4Text">Si no quieres, NO LO HAGAS. Las <strong>compresiones solas</strong> son muy efectivas en adultos. ¡Actúa!</p>
   </div>
   
-  <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()" data-i18n="practice">🆘 PRACTICE EMERGENCY MODE</button>
+  <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()" data-i18n="practice">🆘 PRACTICAR MODO EMERGENCIA</button>
 </div>
 
 <div id="settings" class="view">
-  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Back</button>
-  <h2 style="color:#1e88e5;margin-bottom:20px" data-i18n="settingsTitle">⚙️ Settings</h2>
+  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
+  <h2 style="color:#1e88e5;margin-bottom:20px" data-i18n="settingsTitle">⚙️ Configuración</h2>
   
   <div class="settings-row">
-    <label data-i18n="languageLabel">🌐 Language</label>
+    <label data-i18n="languageLabel">🌐 Idioma</label>
     <select id="languageSelect" onchange="updateLanguage()">
       <option value="es">🇪🇸 Español</option>
       <option value="en">🇺🇸 English</option>
@@ -159,63 +159,63 @@
   </div>
   
   <div class="settings-row">
-    <label data-i18n="emergencyLabel">🌍 Emergency Number</label>
+    <label data-i18n="emergencyLabel">🌍 Número de Emergencia</label>
     <select id="countrySelect" onchange="updateEmergencyNumber()">
-      <option value="911">🇺🇸 USA / 🇲🇽 Mexico / 🇨🇴 Colombia - 911</option>
-      <option value="112">🇪🇸 Spain / 🇪🇺 Europe - 112</option>
-      <option value="106">🇵🇪 Peru - 106 (SAMU)</option>
-      <option value="116">🇪 Peru - 116 (Firefighters)</option>
+      <option value="911">🇺🇸 USA / 🇽 México / 🇨🇴 Colombia - 911</option>
+      <option value="112">🇪🇸 España / 🇪🇺 Europa - 112</option>
+      <option value="106">🇵🇪 Perú - 106 (SAMU)</option>
+      <option value="116">🇵 Perú - 116 (Bomberos)</option>
       <option value="065">🇦🇷 Argentina - 065 (SAME)</option>
-      <option value="131">🇨🇱 Chile - 131 (Ambulance)</option>
-      <option value="133">🇨🇱 Chile - 133 (Police)</option>
+      <option value="131">🇨🇱 Chile - 131 (Ambulancia)</option>
+      <option value="133">🇨 Chile - 133 (Carabineros)</option>
       <option value="123">🇨🇴 Colombia - 123</option>
-      <option value="999">🇬🇧 UK - 999</option>
+      <option value="999">🇬🇧 Reino Unido - 999</option>
     </select>
   </div>
   
   <div class="settings-row">
-    <label data-i18n="voiceLabel">🗣️ Voice Guide</label>
+    <label data-i18n="voiceLabel">🗣️ Guía por Voz</label>
     <div class="toggle-voice">
       <label class="switch">
         <input type="checkbox" id="voiceToggle" checked onchange="toggleVoice()">
         <span class="slider"></span>
       </label>
-      <span id="voiceStatus" style="font-size:0.9rem;color:#4caf50" data-i18n="voiceOn">Enabled</span>
+      <span id="voiceStatus" style="font-size:0.9rem;color:#4caf50" data-i18n="voiceOn">Activada</span>
     </div>
   </div>
   
   <p style="color:#666;font-size:0.85rem;margin-top:20px;line-height:1.5" data-i18n="installTip">
-    💡 <strong>Install as app:</strong> In your browser menu select "Add to Home Screen" or "Install app". Once installed, it will work <strong>without internet</strong>.
+    💡 <strong>Instalar como app:</strong> En el menú del navegador selecciona "Agregar a pantalla de inicio" o "Instalar app". Una vez instalada, funcionará <strong>sin internet</strong>.
   </p>
 </div>
 
 <div id="dea" class="view">
-  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Back</button>
-  <h2 style="color:#1e88e5;margin-bottom:5px" data-i18n="deaTitle">📍 Nearby Defibrillators (AED)</h2>
-  <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px" data-i18n="deaSub">Using your current location...</p>
+  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
+  <h2 style="color:#1e88e5;margin-bottom:5px" data-i18n="deaTitle">📍 Desfibriladores (DEA) Cercanos</h2>
+  <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px" data-i18n="deaSub">Usando tu ubicación actual...</p>
   
   <div id="dea-map-container">
-    <div class="dea-loading" id="deaLoading"> Getting location...<br><small>Accept GPS permissions</small></div>
+    <div class="dea-loading" id="deaLoading">📡 Obteniendo ubicación...<br><small>Acepta los permisos de GPS</small></div>
     <iframe id="deaMap" style="display:none;" allow="geolocation"></iframe>
   </div>
   
-  <button class="btn btn-secondary" onclick="findDEA()" data-i18n="updateLocation">🔄 Update Location</button>
-  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center" data-i18n="deaFooter">Map by OpenStreetMap. Requires internet only to load the map.</p>
+  <button class="btn btn-secondary" onclick="findDEA()" data-i18n="updateLocation">🔄 Actualizar Ubicación</button>
+  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center" data-i18n="deaFooter">Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.</p>
 </div>
 
-<div id="installBanner" onclick="installApp()" data-i18n="installBanner">📲 Tap here to install Salvador C.E. as an app</div>
+<div id="installBanner" onclick="installApp()" data-i18n="installBanner"> Toca aquí para instalar Salvador C.E. como app</div>
 
 <script>
-  // ===== TRADUCCIONES =====
+  // ===== TRADUCCIONES CON DETALLES CLÍNICOS RESTAURADOS =====
   const translations = {
     es: {
       subtitle: "Cardio-Emergencia",
       emergency: "🆘 EMERGENCIA",
       emergencySub: "Alguien no responde",
-      learn: "📚 APRENDER A SALVAR VIDAS",
+      learn: " APRENDER A SALVAR VIDAS",
       settings: "⚙️ Configuración y País",
-      dea: " Buscar DEA Cercano",
-      footer: "v3.0 PWA · Funciona sin internet · No sustituye curso certificado",
+      dea: "📍 Buscar DEA Cercano",
+      footer: "v3.1 PWA · Funciona sin internet · No sustituye curso certificado",
       exit: "← Salir",
       compressions: "Compresiones",
       back: "← Volver",
@@ -226,8 +226,8 @@
       learn2Title: "2. Llama a Emergencias",
       learn2Text: "Si estás solo, llama PRIMERO. Si hay más gente, grita \"¡Tú, llama y trae un DEA!\"",
       learn3Title: "3. Posición de manos",
-      learn3Text: "Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos.",
-      learn4Title: "💡 ¿Y el boca a boca?",
+      learn3Text: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos.",
+      learn4Title: " ¿Y el boca a boca?",
       learn4Text: "Si no quieres, NO LO HAGAS. Las <strong>compresiones solas</strong> son muy efectivas en adultos. ¡Actúa!",
       practice: "🆘 PRACTICAR MODO EMERGENCIA",
       settingsTitle: "⚙️ Configuración",
@@ -243,11 +243,32 @@
       deaFooter: "Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.",
       installBanner: "📲 Toca aquí para instalar Salvador C.E. como app",
       steps: [
-        { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: ¿Estás bien? Mira si respira." },
-        { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." },
-        { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos." },
-        { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
-        { icon: "🔁", text: "No te detengas", detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." }
+        { 
+          icon: "👀", 
+          text: "Verifica si responde", 
+          detail: "Toca sus hombros fuerte y grita: '¿Estás bien?' Mira si respira (máx 10 segundos)." 
+        },
+        { 
+          icon: "📞", 
+          text: "Pide ayuda YA", 
+          detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." 
+        },
+        { 
+          icon: "👐", 
+          text: "Posición de manos", 
+          detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos." 
+        },
+        { 
+          icon: "💓", 
+          text: "¡COMPRESIONES!", 
+          detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", 
+          metronome: true 
+        },
+        { 
+          icon: "🔁", 
+          text: "No te detengas", 
+          detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." 
+        }
       ]
     },
     en: {
@@ -255,9 +276,9 @@
       emergency: "🆘 EMERGENCY",
       emergencySub: "Someone is not responding",
       learn: "📚 LEARN TO SAVE LIVES",
-      settings: "️ Settings & Country",
+      settings: "⚙️ Settings & Country",
       dea: "📍 Find Nearby AED",
-      footer: "v3.0 PWA · Works offline · Does not replace certified course",
+      footer: "v3.1 PWA · Works offline · Does not replace certified course",
       exit: "← Exit",
       compressions: "Compressions",
       back: "← Back",
@@ -268,8 +289,8 @@
       learn2Title: "2. Call Emergency Services",
       learn2Text: "If you're alone, call FIRST. If there are others, shout \"You, call emergency and bring an AED!\"",
       learn3Title: "3. Hand Position",
-      learn3Text: "Heel of one hand in the CENTER of the chest. Other hand on top, fingers interlaced. Arms straight.",
-      learn4Title: "💡 What about mouth-to-mouth?",
+      learn3Text: "Heel of one hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight.",
+      learn4Title: " What about mouth-to-mouth?",
       learn4Text: "If you don't want to, DON'T DO IT. <strong>Hands-only CPR</strong> is very effective for adults. Act!",
       practice: "🆘 PRACTICE EMERGENCY MODE",
       settingsTitle: "⚙️ Settings",
@@ -278,18 +299,39 @@
       voiceLabel: "🗣️ Voice Guide",
       voiceOn: "Enabled",
       voiceOff: "Disabled",
-      installTip: " <strong>Install as app:</strong> In your browser menu select \"Add to Home Screen\" or \"Install app\". Once installed, it will work <strong>without internet</strong>.",
-      deaTitle: "📍 Nearby Defibrillators (AED)",
+      installTip: "💡 <strong>Install as app:</strong> In your browser menu select \"Add to Home Screen\" or \"Install app\". Once installed, it will work <strong>without internet</strong>.",
+      deaTitle: " Nearby Defibrillators (AED)",
       deaSub: "Using your current location...",
       updateLocation: "🔄 Update Location",
       deaFooter: "Map by OpenStreetMap. Requires internet only to load the map.",
       installBanner: "📲 Tap here to install Salvador C.E. as an app",
       steps: [
-        { icon: "👀", text: "Check if responsive", detail: "Tap their shoulders hard and shout: Are you okay? Check if breathing." },
-        { icon: "📞", text: "Call for help NOW", detail: "Shout for help. Call emergency. Activate speakerphone. Ask for an AED." },
-        { icon: "👐", text: "Hand Position", detail: "Heel of hand in the CENTER of the chest. Other hand on top, fingers interlaced. Arms straight." },
-        { icon: "💓", text: "COMPRESS!", detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", metronome: true },
-        { icon: "🔁", text: "Don't stop", detail: "Continue until ambulance arrives, person responds, or you're exhausted. Switch every 2 minutes." }
+        { 
+          icon: "👀", 
+          text: "Check if responsive", 
+          detail: "Tap their shoulders hard and shout: 'Are you okay?' Check if breathing (max 10 seconds)." 
+        },
+        { 
+          icon: "📞", 
+          text: "Call for help NOW", 
+          detail: "Shout for help. Call emergency. Activate speakerphone. Ask for an AED." 
+        },
+        { 
+          icon: "👐", 
+          text: "Hand Position", 
+          detail: "Heel of hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight." 
+        },
+        { 
+          icon: "💓", 
+          text: "COMPRESS!", 
+          detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", 
+          metronome: true 
+        },
+        { 
+          icon: "🔁", 
+          text: "Don't stop", 
+          detail: "Continue until ambulance arrives, person responds, or you're exhausted. Switch every 2 minutes." 
+        }
       ]
     }
   };
@@ -333,14 +375,12 @@
   document.getElementById('emergencyNumDisplay').textContent = emergencyNumber;
   document.getElementById('voiceToggle').checked = voiceEnabled;
   
-  // Aplicar idioma al cargar
   applyLanguage();
   updateVoiceStatus();
 
   function applyLanguage() {
     const t = translations[currentLang];
     
-    // Actualizar todos los elementos con data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (t[key]) {
@@ -348,7 +388,6 @@
       }
     });
     
-    // Actualizar pasos si estamos en modo SOS
     if (document.getElementById('sos').classList.contains('active')) {
       updateStep();
     }
