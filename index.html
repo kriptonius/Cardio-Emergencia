@@ -8,41 +8,39 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Salvador CE">
-<meta name="description" content="App de RCP para salvar vidas - funciona offline">
 <link rel="manifest" href="manifest.json">
-<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
-<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23ff3b3b'/><text x='50' y='70' font-size='60' text-anchor='middle'>💓</text></svg>">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
-  body { background: #0a0a0a; color: white; min-height: 100vh; overflow-x: hidden; padding-bottom: 120px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; }
+  body { background: #0a0a0a; color: white; min-height: 100vh; padding-bottom: 120px; }
   .view { display: none; min-height: 100vh; padding: 20px; flex-direction: column; }
   .view.active { display: flex; }
   
   #home { justify-content: center; align-items: center; gap: 25px; text-align: center; }
   .logo-icon { width: 90px; height: 90px; background: linear-gradient(135deg, #ff3b3b, #c62828); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 15px 40px rgba(255,59,59,0.4); animation: heartbeat 1.5s infinite; margin: 0 auto; }
   @keyframes heartbeat { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.08); } 50% { transform: scale(1); } 75% { transform: scale(1.04); } }
-  #home h1 { font-size: 2.5rem; color: white; letter-spacing: 1px; }
+  #home h1 { font-size: 2.5rem; color: white; }
   #home h1 span { color: #ff3b3b; }
   #home .subtitle { font-size: 0.9rem; color: #aaa; letter-spacing: 3px; text-transform: uppercase; margin-top: 5px; }
   
-  .btn { width: 100%; max-width: 400px; padding: 30px 20px; border: none; border-radius: 18px; font-size: 1.3rem; font-weight: bold; cursor: pointer; transition: transform 0.1s; margin-bottom: 15px; }
+  .btn { width: 100%; max-width: 400px; padding: 30px 20px; border: none; border-radius: 18px; font-size: 1.3rem; font-weight: bold; cursor: pointer; margin-bottom: 15px; }
   .btn:active { transform: scale(0.97); }
   .btn-sos { background: linear-gradient(135deg, #ff3b3b, #c62828); color: white; box-shadow: 0 10px 30px rgba(255,59,59,0.4); }
-  .btn-learn { background: linear-gradient(135deg, #1e88e5, #1565c0); color: white; box-shadow: 0 10px 30px rgba(30,136,229,0.3); }
+  .btn-learn { background: linear-gradient(135deg, #1e88e5, #1565c0); color: white; }
   .btn-secondary { background: #222; color: white; border: 1px solid #444; font-size: 1rem; padding: 15px; }
-  .btn-back { background: #333; color: white; padding: 12px 20px; border-radius: 10px; font-size: 1rem; margin-bottom: 20px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-back { background: #333; color: white; padding: 12px 20px; border-radius: 10px; font-size: 1rem; margin-bottom: 20px; border: none; cursor: pointer; }
   
   #sos { background: #000; }
   .sos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-  .sos-brand { color: #ff3b3b; font-size: 1rem; font-weight: bold; letter-spacing: 1px; }
+  .sos-brand { color: #ff3b3b; font-size: 1rem; font-weight: bold; }
   .step-counter { background: #ff3b3b; padding: 6px 14px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; }
   .step-content { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 20px; padding: 10px; }
   .step-icon { font-size: 5rem; }
   .step-text { font-size: 1.7rem; font-weight: bold; line-height: 1.3; }
-  .step-detail { font-size: 1.1rem; color: #ccc; line-height: 1.5; }
+  .step-detail { font-size: 1.1rem; color: #ccc; line-height: 1.6; padding: 0 10px; }
   
-  /* Controles SOS con espacio extra abajo para evitar el banner de Netlify */
   .sos-controls { display: flex; gap: 10px; padding: 30px 0 60px 0; margin-top: 20px; }
   .sos-btn { flex: 1; padding: 20px 10px; border: none; border-radius: 14px; font-size: 1rem; font-weight: bold; cursor: pointer; min-height: 60px; }
   .sos-btn-prev { background: #333; color: white; }
@@ -76,31 +74,34 @@
   
   #installBanner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1e88e5; color: white; padding: 15px; text-align: center; font-weight: bold; cursor: pointer; z-index: 1000; }
   #installBanner.show { display: block; }
+
+  .share-link { background: none; border: none; color: #666; font-size: 0.8rem; padding: 8px; cursor: pointer; text-decoration: underline; }
+  #qrModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 2000; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 20px; text-align: center; }
+  #qrModal.show { display: flex; }
+  #qrModal .qr-box { width: min(78vw, 320px); background: #fff; padding: 10px; border-radius: 16px; }
+  #qrModal .qr-box svg { width: 100%; height: auto; display: block; }
+  #qrModal p { color: #ccc; font-size: 0.95rem; line-height: 1.5; max-width: 320px; }
+  #qrModal small { color: #777; word-break: break-all; }
 </style>
 </head>
 <body>
 
-<!-- PANTALLA DE INICIO -->
 <div id="home" class="view active">
   <div class="logo-icon">🫀</div>
   <h1>SALVADOR <span>C.E.</span></h1>
-  <div class="subtitle" data-i18n="subtitle">Cardio-Emergencia</div>
+  <div class="subtitle">Cardio-Emergencia</div>
   
-  <button class="btn btn-sos" onclick="showView('sos'); startSOS()">
-    <span data-i18n="emergency">🆘 EMERGENCIA</span><br>
-    <small style="font-size:0.7em;font-weight:normal" data-i18n="emergencySub">Alguien no responde</small>
-  </button>
-  <button class="btn btn-learn" onclick="showView('learn')" data-i18n="learn">📚 APRENDER A SALVAR VIDAS</button>
-  <button class="btn btn-secondary" onclick="showView('settings')" data-i18n="settings">⚙️ Configuración y País</button>
-  <button class="btn btn-secondary" onclick="showView('dea')" data-i18n="dea">📍 Buscar DEA Cercano</button>
+  <button class="btn btn-sos" onclick="showView('sos'); startSOS()">🆘 EMERGENCIA<br><small style="font-size:0.7em;font-weight:normal">Alguien no responde</small></button>
+  <button class="btn btn-learn" onclick="showView('learn')">📚 APRENDER A SALVAR VIDAS</button>
+  <button class="btn btn-secondary" onclick="showView('settings')">⚙️ Configuración y País</button>
+  <button class="btn btn-secondary" onclick="showView('dea')">📍 Buscar DEA Cercano</button>
   
-  <div class="app-footer" data-i18n="footer">v3.2 PWA · Funciona sin internet · No sustituye curso certificado</div>
+  <div class="app-footer">v3.4 PWA · Funciona sin internet<br><button class="share-link" onclick="toggleQR(true)">📲 Compartir app</button></div>
 </div>
 
-<!-- MODO SOS -->
 <div id="sos" class="view">
   <div class="sos-header">
-    <button class="btn-back" onclick="stopSOS(); showView('home')" data-i18n="exit">← Salir</button>
+    <button class="btn-back" onclick="stopSOS(); showView('home')">← Salir</button>
     <span class="sos-brand">SALVADOR C.E.</span>
     <span class="step-counter" id="stepCounter">1 / 5</span>
   </div>
@@ -108,13 +109,13 @@
   <div class="step-content">
     <div class="step-icon" id="stepIcon">👀</div>
     <div class="step-text" id="stepText">Verifica si responde</div>
-    <div class="step-detail" id="stepDetail">Toca sus hombros fuerte y grita: "¿Estás bien?"</div>
+    <div class="step-detail" id="stepDetail">Toca sus hombros y grita: ¿Estás bien?</div>
   </div>
   
   <div id="metronome">
     <div class="pulse-ring" id="pulseRing">💓</div>
     <div class="bpm-display">110 <span class="bpm-label">BPM</span></div>
-    <div class="compressions-count"><span data-i18n="compressions">Compresiones</span>: <span id="compCount">0</span></div>
+    <div class="compressions-count">Compresiones: <span id="compCount">0</span></div>
   </div>
   
   <div class="sos-controls">
@@ -124,39 +125,37 @@
   </div>
 </div>
 
-<!-- MODO APRENDER -->
 <div id="learn" class="view">
-  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
-  <h2 style="color:#ff3b3b;margin-bottom:5px" data-i18n="learnTitle">🫀 Aprende con Salvador C.E.</h2>
-  <p style="color:#aaa;font-size:0.9rem;margin-bottom:20px" data-i18n="learnSub">Domina los fundamentos en 3 minutos</p>
+  <button class="btn-back" onclick="showView('home')">← Volver</button>
+  <h2 style="color:#ff3b3b;margin-bottom:5px">🫀 Aprende con Salvador C.E.</h2>
+  <p style="color:#aaa;font-size:0.9rem;margin-bottom:20px">Domina los fundamentos en 3 minutos</p>
   
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
-    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn1Title">1. ¿Cuándo hacer RCP?</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn1Text">Cuando está inconsciente y NO respira (o solo boquea). Cada minuto sin RCP reduce la supervivencia un 10%.</p>
+    <h3 style="color:#1e88e5;margin-bottom:8px">1. ¿Cuándo hacer RCP?</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Cuando está inconsciente y NO respira. Cada minuto sin RCP reduce la supervivencia un 10%.</p>
   </div>
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
-    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn2Title">2. Llama a Emergencias</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn2Text">Si estás solo, llama PRIMERO. Si hay más gente, grita "¡Tú, llama y trae un DEA!"</p>
+    <h3 style="color:#1e88e5;margin-bottom:8px">2. Llama a Emergencias</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Si estás solo, llama PRIMERO. Si hay más gente, grita "¡Tú, llama y trae un DEA!"</p>
   </div>
   <div style="background:#1a1a1a;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #1e88e5">
-    <h3 style="color:#1e88e5;margin-bottom:8px" data-i18n="learn3Title">3. Posición de manos</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn3Text">Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos.</p>
+    <h3 style="color:#1e88e5;margin-bottom:8px">3. Posición de manos</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados.</p>
   </div>
   <div style="background:#2d1f00;padding:18px;border-radius:15px;margin-bottom:12px;border-left:4px solid #ff9800">
-    <h3 style="color:#ff9800;margin-bottom:8px" data-i18n="learn4Title">💡 ¿Y el boca a boca?</h3>
-    <p style="color:#ccc;line-height:1.5;font-size:0.95rem" data-i18n="learn4Text">Si no quieres, NO LO HAGAS. Las <strong>compresiones solas</strong> son muy efectivas en adultos. ¡Actúa!</p>
+    <h3 style="color:#ff9800;margin-bottom:8px"> ¿Boca a boca?</h3>
+    <p style="color:#ccc;line-height:1.5;font-size:0.95rem">Si no quieres, NO LO HAGAS. Las compresiones solas son muy efectivas. ¡Actúa!</p>
   </div>
   
-  <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()" data-i18n="practice">🆘 PRACTICAR MODO EMERGENCIA</button>
+  <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()">🆘 PRACTICAR MODO EMERGENCIA</button>
 </div>
 
-<!-- CONFIGURACIÓN -->
 <div id="settings" class="view">
-  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
-  <h2 style="color:#1e88e5;margin-bottom:20px" data-i18n="settingsTitle">⚙️ Configuración</h2>
+  <button class="btn-back" onclick="showView('home')">← Volver</button>
+  <h2 style="color:#1e88e5;margin-bottom:20px">⚙️ Configuración</h2>
   
   <div class="settings-row">
-    <label data-i18n="languageLabel">🌐 Idioma</label>
+    <label>🌐 Idioma</label>
     <select id="languageSelect" onchange="updateLanguage()">
       <option value="es">🇪🇸 Español</option>
       <option value="en">🇺🇸 English</option>
@@ -164,156 +163,93 @@
   </div>
   
   <div class="settings-row">
-    <label data-i18n="emergencyLabel">🌍 Número de Emergencia</label>
+    <label>🌍 Número de Emergencia</label>
     <select id="countrySelect" onchange="updateEmergencyNumber()">
       <option value="911">🇺🇸 USA / 🇲🇽 México / 🇨🇴 Colombia - 911</option>
       <option value="112">🇪🇸 España / 🇪🇺 Europa - 112</option>
       <option value="106">🇵🇪 Perú - 106 (SAMU)</option>
-      <option value="116">🇵🇪 Perú - 116 (Bomberos)</option>
-      <option value="065">🇷 Argentina - 065 (SAME)</option>
-      <option value="131">🇨🇱 Chile - 131 (Ambulancia)</option>
-      <option value="133">🇨 Chile - 133 (Carabineros)</option>
+      <option value="116">🇪 Perú - 116 (Bomberos)</option>
+      <option value="065">🇦🇷 Argentina - 065 (SAME)</option>
+      <option value="131">🇨 Chile - 131 (Ambulancia)</option>
+      <option value="133">🇨🇱 Chile - 133 (Carabineros)</option>
       <option value="123">🇨🇴 Colombia - 123</option>
       <option value="999">🇬🇧 Reino Unido - 999</option>
     </select>
   </div>
   
   <div class="settings-row">
-    <label data-i18n="voiceLabel">🗣️ Guía por Voz</label>
+    <label>️ Guía por Voz</label>
     <div class="toggle-voice">
       <label class="switch">
         <input type="checkbox" id="voiceToggle" checked onchange="toggleVoice()">
         <span class="slider"></span>
       </label>
-      <span id="voiceStatus" style="font-size:0.9rem;color:#4caf50" data-i18n="voiceOn">Activada</span>
+      <span id="voiceStatus" style="font-size:0.9rem;color:#4caf50">Activada</span>
     </div>
   </div>
   
-  <p style="color:#666;font-size:0.85rem;margin-top:20px;line-height:1.5" data-i18n="installTip">
-    💡 <strong>Instalar como app:</strong> En el menú del navegador selecciona "Agregar a pantalla de inicio" o "Instalar app". Una vez instalada, funcionará <strong>sin internet</strong>.
+  <p style="color:#666;font-size:0.85rem;margin-top:20px;line-height:1.5">
+    💡 <strong>Instalar como app:</strong> Menú del navegador → "Agregar a pantalla de inicio". Funcionará sin internet.
   </p>
 </div>
 
-<!-- MAPA DEA -->
 <div id="dea" class="view">
-  <button class="btn-back" onclick="showView('home')" data-i18n="back">← Volver</button>
-  <h2 style="color:#1e88e5;margin-bottom:5px" data-i18n="deaTitle">📍 Desfibriladores (DEA) Cercanos</h2>
-  <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px" data-i18n="deaSub">Usando tu ubicación actual...</p>
+  <button class="btn-back" onclick="showView('home')">← Volver</button>
+  <h2 style="color:#1e88e5;margin-bottom:5px">📍 Desfibriladores (DEA) Cercanos</h2>
+  <p style="color:#aaa;font-size:0.9rem;margin-bottom:15px">Usando tu ubicación actual...</p>
   
   <div id="dea-map-container">
     <div class="dea-loading" id="deaLoading">📡 Obteniendo ubicación...<br><small>Acepta los permisos de GPS</small></div>
     <iframe id="deaMap" style="display:none;" allow="geolocation"></iframe>
   </div>
   
-  <button class="btn btn-secondary" onclick="findDEA()" data-i18n="updateLocation">🔄 Actualizar Ubicación</button>
-  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center" data-i18n="deaFooter">Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.</p>
+  <button class="btn btn-secondary" onclick="findDEA()"> Actualizar Ubicación</button>
+  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center">Mapa por OpenStreetMap. Requiere internet.</p>
 </div>
 
-<div id="installBanner" onclick="installApp()" data-i18n="installBanner">📲 Toca aquí para instalar Salvador C.E. como app</div>
+<div id="qrModal" onclick="toggleQR(false)">
+  <div class="qr-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 33 33" shape-rendering="crispEdges"><rect x="-2" y="-2" width="33" height="33" fill="#fff"/><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM11 0h1v1h-1zM14 0h1v1h-1zM16 0h1v1h-1zM18 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM25 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM11 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM12 2h1v1h-1zM14 2h1v1h-1zM15 2h1v1h-1zM19 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM25 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM11 3h1v1h-1zM14 3h1v1h-1zM17 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM25 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM13 4h1v1h-1zM16 4h1v1h-1zM18 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM25 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM18 5h1v1h-1zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM25 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM8 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM0 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM9 8h1v1h-1zM10 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM19 8h1v1h-1zM21 8h1v1h-1zM22 8h1v1h-1zM25 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM0 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM8 9h1v1h-1zM9 9h1v1h-1zM14 9h1v1h-1zM15 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM23 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM27 9h1v1h-1zM1 10h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM17 10h1v1h-1zM20 10h1v1h-1zM21 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM0 11h1v1h-1zM2 11h1v1h-1zM4 11h1v1h-1zM5 11h1v1h-1zM10 11h1v1h-1zM14 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM21 11h1v1h-1zM23 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM4 12h1v1h-1zM5 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM10 12h1v1h-1zM11 12h1v1h-1zM12 12h1v1h-1zM13 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM16 12h1v1h-1zM19 12h1v1h-1zM20 12h1v1h-1zM22 12h1v1h-1zM23 12h1v1h-1zM28 12h1v1h-1zM1 13h1v1h-1zM2 13h1v1h-1zM3 13h1v1h-1zM7 13h1v1h-1zM11 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM17 13h1v1h-1zM18 13h1v1h-1zM19 13h1v1h-1zM20 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM27 13h1v1h-1zM28 13h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1zM15 14h1v1h-1zM17 14h1v1h-1zM20 14h1v1h-1zM22 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM2 15h1v1h-1zM4 15h1v1h-1zM5 15h1v1h-1zM7 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM21 15h1v1h-1zM24 15h1v1h-1zM26 15h1v1h-1zM28 15h1v1h-1zM3 16h1v1h-1zM6 16h1v1h-1zM9 16h1v1h-1zM14 16h1v1h-1zM17 16h1v1h-1zM23 16h1v1h-1zM25 16h1v1h-1zM26 16h1v1h-1zM0 17h1v1h-1zM2 17h1v1h-1zM3 17h1v1h-1zM5 17h1v1h-1zM7 17h1v1h-1zM8 17h1v1h-1zM9 17h1v1h-1zM15 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM20 17h1v1h-1zM22 17h1v1h-1zM23 17h1v1h-1zM24 17h1v1h-1zM26 17h1v1h-1zM27 17h1v1h-1zM28 17h1v1h-1zM0 18h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM11 18h1v1h-1zM13 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM28 18h1v1h-1zM0 19h1v1h-1zM2 19h1v1h-1zM3 19h1v1h-1zM5 19h1v1h-1zM11 19h1v1h-1zM12 19h1v1h-1zM14 19h1v1h-1zM19 19h1v1h-1zM21 19h1v1h-1zM24 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM9 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM20 20h1v1h-1zM21 20h1v1h-1zM22 20h1v1h-1zM23 20h1v1h-1zM24 20h1v1h-1zM26 20h1v1h-1zM27 20h1v1h-1zM28 20h1v1h-1zM8 21h1v1h-1zM10 21h1v1h-1zM13 21h1v1h-1zM15 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM24 21h1v1h-1zM25 21h1v1h-1zM0 22h1v1h-1zM1 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM5 22h1v1h-1zM6 22h1v1h-1zM9 22h1v1h-1zM11 22h1v1h-1zM12 22h1v1h-1zM13 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h1v1h-1zM25 22h1v1h-1zM26 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM10 23h1v1h-1zM11 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM27 23h1v1h-1zM0 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM13 24h1v1h-1zM15 24h1v1h-1zM16 24h1v1h-1zM19 24h1v1h-1zM20 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM25 24h1v1h-1zM28 24h1v1h-1zM0 25h1v1h-1zM2 25h1v1h-1zM3 25h1v1h-1zM4 25h1v1h-1zM6 25h1v1h-1zM9 25h1v1h-1zM11 25h1v1h-1zM13 25h1v1h-1zM15 25h1v1h-1zM16 25h1v1h-1zM17 25h1v1h-1zM18 25h1v1h-1zM19 25h1v1h-1zM21 25h1v1h-1zM25 25h1v1h-1zM26 25h1v1h-1zM28 25h1v1h-1zM0 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM6 26h1v1h-1zM10 26h1v1h-1zM11 26h1v1h-1zM15 26h1v1h-1zM16 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM25 26h1v1h-1zM26 26h1v1h-1zM27 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM10 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM16 27h1v1h-1zM18 27h1v1h-1zM21 27h1v1h-1zM23 27h1v1h-1zM25 27h1v1h-1zM26 27h1v1h-1zM28 27h1v1h-1zM0 28h1v1h-1zM1 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM5 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM11 28h1v1h-1zM13 28h1v1h-1zM17 28h1v1h-1zM19 28h1v1h-1zM24 28h1v1h-1zM26 28h1v1h-1z" fill="#000"/></svg></div>
+  <p>Escanea con la cámara del celular para abrir e instalar <strong>Salvador C.E.</strong><br>Luego: menú del navegador → "Instalar app".</p>
+  <small>https://cardioemergencia.netlify.app/</small>
+  <button class="btn-back" onclick="toggleQR(false)">Cerrar</button>
+</div>
+
+<div id="installBanner" onclick="installApp()">📲 Toca aquí para instalar Salvador C.E. como app</div>
 
 <script>
-  // ===== TRADUCCIONES =====
   const translations = {
     es: {
-      subtitle: "Cardio-Emergencia",
-      emergency: "🆘 EMERGENCIA",
-      emergencySub: "Alguien no responde",
-      learn: "📚 APRENDER A SALVAR VIDAS",
-      settings: "⚙️ Configuración y País",
-      dea: "📍 Buscar DEA Cercano",
-      footer: "v3.2 PWA · Funciona sin internet · No sustituye curso certificado",
-      exit: "← Salir",
-      compressions: "Compresiones",
-      back: "← Volver",
-      learnTitle: " Aprende con Salvador C.E.",
-      learnSub: "Domina los fundamentos en 3 minutos",
-      learn1Title: "1. ¿Cuándo hacer RCP?",
-      learn1Text: "Cuando está inconsciente y NO respira (o solo boquea). Cada minuto sin RCP reduce la supervivencia un 10%.",
-      learn2Title: "2. Llama a Emergencias",
-      learn2Text: "Si estás solo, llama PRIMERO. Si hay más gente, grita \"¡Tú, llama y trae un DEA!\"",
-      learn3Title: "3. Posición de manos",
-      learn3Text: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos.",
-      learn4Title: "💡 ¿Y el boca a boca?",
-      learn4Text: "Si no quieres, NO LO HAGAS. Las <strong>compresiones solas</strong> son muy efectivas en adultos. ¡Actúa!",
-      practice: "🆘 PRACTICAR MODO EMERGENCIA",
-      settingsTitle: "⚙️ Configuración",
-      languageLabel: "🌐 Idioma",
-      emergencyLabel: "🌍 Número de Emergencia",
-      voiceLabel: "🗣️ Guía por Voz",
-      voiceOn: "Activada",
-      voiceOff: "Desactivada",
-      installTip: "💡 <strong>Instalar como app:</strong> En el menú del navegador selecciona \"Agregar a pantalla de inicio\" o \"Instalar app\". Una vez instalada, funcionará <strong>sin internet</strong>.",
-      deaTitle: "📍 Desfibriladores (DEA) Cercanos",
-      deaSub: "Usando tu ubicación actual...",
-      updateLocation: "🔄 Actualizar Ubicación",
-      deaFooter: "Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.",
-      installBanner: "📲 Toca aquí para instalar Salvador C.E. como app",
       steps: [
-        { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: '¿Estás bien?' Mira si respira (MÁXIMO 10 segundos)." },
-        { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." },
-        { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón). Otra mano encima, dedos entrelazados. Brazos rectos." },
-        { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
-        { icon: "🔁", text: "No te detengas", detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." }
+        { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros y grita: ¿Estás bien?\nMira si respira (MÁXIMO 10 segundos)." },
+        { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda.\nLlama a emergencias.\nActiva el altavoz.\nPide un DEA." },
+        { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón).\nOtra mano encima, dedos entrelazados.\nBrazos rectos." },
+        { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido:\n5 a 6 cm de profundidad.\nAl ritmo del metrónomo.\nDeja que el pecho suba.", metronome: true },
+        { icon: "🔁", text: "No te detengas", detail: "Sigue hasta que llegue la ambulancia,\nla persona reaccione, o estés agotado.\nCambia cada 2 minutos." }
       ]
     },
     en: {
-      subtitle: "Cardio-Emergency",
-      emergency: "🆘 EMERGENCY",
-      emergencySub: "Someone is not responding",
-      learn: "📚 LEARN TO SAVE LIVES",
-      settings: "️ Settings & Country",
-      dea: "📍 Find Nearby AED",
-      footer: "v3.2 PWA · Works offline · Does not replace certified course",
-      exit: "← Exit",
-      compressions: "Compressions",
-      back: "← Back",
-      learnTitle: "🫀 Learn with Salvador C.E.",
-      learnSub: "Master the basics in 3 minutes",
-      learn1Title: "1. When to do CPR?",
-      learn1Text: "When someone is unconscious and NOT breathing (or only gasping). Every minute without CPR reduces survival by 10%.",
-      learn2Title: "2. Call Emergency Services",
-      learn2Text: "If you're alone, call FIRST. If there are others, shout \"You, call emergency and bring an AED!\"",
-      learn3Title: "3. Hand Position",
-      learn3Text: "Heel of one hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight.",
-      learn4Title: "💡 What about mouth-to-mouth?",
-      learn4Text: "If you don't want to, DON'T DO IT. <strong>Hands-only CPR</strong> is very effective for adults. Act!",
-      practice: "🆘 PRACTICE EMERGENCY MODE",
-      settingsTitle: "⚙️ Settings",
-      languageLabel: "🌐 Language",
-      emergencyLabel: " Emergency Number",
-      voiceLabel: "️ Voice Guide",
-      voiceOn: "Enabled",
-      voiceOff: "Disabled",
-      installTip: "💡 <strong>Install as app:</strong> In your browser menu select \"Add to Home Screen\" or \"Install app\". Once installed, it will work <strong>without internet</strong>.",
-      deaTitle: "📍 Nearby Defibrillators (AED)",
-      deaSub: "Using your current location...",
-      updateLocation: "🔄 Update Location",
-      deaFooter: "Map by OpenStreetMap. Requires internet only to load the map.",
-      installBanner: "📲 Tap here to install Salvador C.E. as an app",
       steps: [
-        { icon: "", text: "Check if responsive", detail: "Tap their shoulders hard and shout: 'Are you okay?' Check if breathing (MAXIMUM 10 seconds)." },
-        { icon: "📞", text: "Call for help NOW", detail: "Shout for help. Call emergency. Activate speakerphone. Ask for an AED." },
-        { icon: "", text: "Hand Position", detail: "Heel of hand in the CENTER of the chest (lower half of the sternum). Other hand on top, fingers interlaced. Arms straight." },
-        { icon: "💓", text: "COMPRESS!", detail: "Push hard and fast: 5 to 6 centimeters deep. Follow the metronome rhythm. Let the chest rise.", metronome: true },
-        { icon: "🔁", text: "Don't stop", detail: "Continue until ambulance arrives, person responds, or you're exhausted. Switch every 2 minutes." }
+        { icon: "👀", text: "Check if responsive", detail: "Tap their shoulders and shout: Are you okay?\nCheck if breathing (MAXIMUM 10 seconds)." },
+        { icon: "", text: "Call for help NOW", detail: "Shout for help.\nCall emergency.\nActivate speakerphone.\nAsk for an AED." },
+        { icon: "👐", text: "Hand Position", detail: "Heel of hand in the CENTER of the chest (lower half of sternum).\nOther hand on top, fingers interlaced.\nArms straight." },
+        { icon: "", text: "COMPRESS!", detail: "Push hard and fast:\n5 to 6 cm deep.\nFollow the metronome.\nLet the chest rise.", metronome: true },
+        { icon: "🔁", text: "Don't stop", detail: "Continue until ambulance arrives,\nperson responds, or you're exhausted.\nSwitch every 2 minutes." }
       ]
     }
   };
 
-  // ===== SERVICE WORKER =====
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('SW registrado', reg.scope))
-      .catch(err => console.log('SW error', err));
+    navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW error', err));
   }
 
-  // ===== INSTALACIÓN PWA =====
   let deferredPrompt;
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     document.getElementById('installBanner').classList.add('show');
   });
+
+  function toggleQR(show) { document.getElementById('qrModal').classList.toggle('show', show); }
 
   function installApp() {
     if (deferredPrompt) {
@@ -325,7 +261,6 @@
     }
   }
 
-  // ===== ESTADO =====
   let currentLang = localStorage.getItem('salvador_lang') || 'es';
   let currentStep = 0;
   let metronomeInterval = null;
@@ -339,23 +274,12 @@
   document.getElementById('emergencyNumDisplay').textContent = emergencyNumber;
   document.getElementById('voiceToggle').checked = voiceEnabled;
   
-  applyLanguage();
-  updateVoiceStatus();
-
-  function applyLanguage() {
-    const t = translations[currentLang];
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (t[key]) el.innerHTML = t[key];
-    });
-    if (document.getElementById('sos').classList.contains('active')) updateStep();
-  }
+  updateStep();
 
   function updateLanguage() {
     currentLang = document.getElementById('languageSelect').value;
     localStorage.setItem('salvador_lang', currentLang);
-    applyLanguage();
-    updateVoiceStatus();
+    if (document.getElementById('sos').classList.contains('active')) updateStep();
   }
 
   function showView(id) {
@@ -375,14 +299,9 @@
   function toggleVoice() {
     voiceEnabled = document.getElementById('voiceToggle').checked;
     localStorage.setItem('salvador_voice', voiceEnabled);
-    updateVoiceStatus();
-    if (!voiceEnabled) window.speechSynthesis.cancel();
-  }
-
-  function updateVoiceStatus() {
-    const t = translations[currentLang];
-    document.getElementById('voiceStatus').textContent = voiceEnabled ? t.voiceOn : t.voiceOff;
+    document.getElementById('voiceStatus').textContent = voiceEnabled ? "Activada" : "Desactivada";
     document.getElementById('voiceStatus').style.color = voiceEnabled ? "#4caf50" : "#ff3b3b";
+    if (!voiceEnabled) window.speechSynthesis.cancel();
   }
 
   function speak(text) {
@@ -391,7 +310,6 @@
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = currentLang === 'es' ? 'es-ES' : 'en-US';
     utterance.rate = 1.1;
-    utterance.pitch = 1;
     window.speechSynthesis.speak(utterance);
   }
 
@@ -402,7 +320,7 @@
     document.getElementById('stepText').textContent = step.text;
     document.getElementById('stepDetail').textContent = step.detail;
     document.getElementById('stepCounter').textContent = `${currentStep + 1} / ${t.steps.length}`;
-    speak(step.text + ". " + step.detail);
+    speak(step.text + ". " + step.detail.replace('\n', ' '));
     const metro = document.getElementById('metronome');
     if (step.metronome) { metro.classList.add('active'); startMetronome(); }
     else { metro.classList.remove('active'); stopMetronome(); }
@@ -462,7 +380,7 @@
         map.style.display = 'block';
         loading.style.display = 'none';
       },
-      (error) => { loading.innerHTML = ` Error de GPS: ${error.message}`; },
+      (error) => { loading.innerHTML = `❌ Error de GPS: ${error.message}`; },
       { enableHighAccuracy: true, timeout: 10000 }
     );
   }
