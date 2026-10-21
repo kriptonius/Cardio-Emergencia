@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Salvador C.E.</title>
-<!-- PWA Meta Tags para instalar en celular -->
 <meta name="theme-color" content="#0a0a0a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Salvador CE">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF8WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+CiAgICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAEAAAAALAAAAAAQABAAAAjUAAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmDNr3sy5s+fPoEOLHk26tOnTqFOrXs26tevXsGPLnk27tu3buHPr3s27t+/fwIMLH068uPHjyJMrX868ufPn0KNLn069uvXr2LNr3869u/fv4MOL/x/Pvr379/Djy59Pv779+/jz69/Pv7///wAGKOCABBZo4IEIJqjgggw26OCDEEYo4YQUVmjhhRhmqOGGHHbo4YcghijiiCSWaOKJKKao4oostujiizDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRinllFRWaeWVWGap5ZZcdunll2CGKeaYZJZp5plopqnmmmy26eabcMYp55x01mnnnXjmqeeefPbp55+ABirooIQWauihiCaq6KKMNuroo5BGKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwxirrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPHFGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvstNdu++2456777rz37vvvwAcv/PDEF2/88cgnr/zyzDfv/PPQRy/99NRXb/312Gev/fbcd+/99+CHL/745Jdv/vnop6/++uy37/778Mcv//z012///fjnr//+/Pfv//8ABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAH......">
+<meta name="description" content="App de RCP para salvar vidas - funciona offline">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫀</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫀</text></svg>">
 
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
-  body { background: #0a0a0a; color: white; min-height: 100vh; overflow-x: hidden; }
+  body { background: #0a0a0a; color: white; min-height: 100vh; overflow-x: hidden; padding-bottom: 120px; }
   .view { display: none; min-height: 100vh; padding: 20px; flex-direction: column; }
   .view.active { display: flex; }
   
-  /* INICIO */
   #home { justify-content: center; align-items: center; gap: 25px; text-align: center; }
   .logo-icon { width: 90px; height: 90px; background: linear-gradient(135deg, #ff3b3b, #c62828); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 15px 40px rgba(255,59,59,0.4); animation: heartbeat 1.5s infinite; margin: 0 auto; }
   @keyframes heartbeat { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.08); } 50% { transform: scale(1); } 75% { transform: scale(1.04); } }
@@ -32,7 +33,6 @@
   .btn-secondary { background: #222; color: white; border: 1px solid #444; font-size: 1rem; padding: 15px; }
   .btn-back { background: #333; color: white; padding: 12px 20px; border-radius: 10px; font-size: 1rem; margin-bottom: 20px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
   
-  /* SOS */
   #sos { background: #000; }
   .sos-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
   .sos-brand { color: #ff3b3b; font-size: 1rem; font-weight: bold; letter-spacing: 1px; }
@@ -42,13 +42,13 @@
   .step-text { font-size: 1.7rem; font-weight: bold; line-height: 1.3; }
   .step-detail { font-size: 1.1rem; color: #ccc; line-height: 1.5; }
   
-  .sos-controls { display: flex; gap: 10px; padding: 15px 0; }
-  .sos-btn { flex: 1; padding: 18px 10px; border: none; border-radius: 14px; font-size: 1rem; font-weight: bold; cursor: pointer; }
+  /* Controles SOS con más espacio abajo para evitar el banner de Netlify */
+  .sos-controls { display: flex; gap: 10px; padding: 30px 0 50px 0; margin-top: 20px; }
+  .sos-btn { flex: 1; padding: 20px 10px; border: none; border-radius: 14px; font-size: 1rem; font-weight: bold; cursor: pointer; min-height: 60px; }
   .sos-btn-prev { background: #333; color: white; }
   .sos-btn-next { background: #ff3b3b; color: white; }
   .sos-btn-call { background: #4caf50; color: white; display: flex; align-items: center; justify-content: center; gap: 8px; }
   
-  /* METRÓNOMO */
   #metronome { display: none; text-align: center; padding: 20px; background: #111; border-radius: 20px; margin: 15px 0; border: 2px solid #ff3b3b; }
   #metronome.active { display: block; }
   .bpm-display { font-size: 3.5rem; font-weight: bold; color: #ffeb3b; }
@@ -57,8 +57,7 @@
   .pulse-ring { width: 90px; height: 90px; border-radius: 50%; background: #ff3b3b; margin: 15px auto; transition: transform 0.1s; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
   .pulse-ring.beat { transform: scale(1.3); background: #ffeb3b; }
   
-  /* AJUSTES / PAÍS */
-  .settings-row { display: flex; justify-content: space-between; align-items: center; background: #1a1a1a; padding: 15px; border-radius: 12px; margin-bottom: 10px; }
+  .settings-row { display: flex; justify-content: space-between; align-items: center; background: #1a1a1a; padding: 15px; border-radius: 12px; margin-bottom: 10px; flex-wrap: wrap; gap: 10px; }
   .settings-row label { font-size: 1rem; color: #ccc; }
   .settings-row select { background: #333; color: white; border: 1px solid #555; padding: 8px 12px; border-radius: 8px; font-size: 1rem; }
   .toggle-voice { display: flex; align-items: center; gap: 10px; }
@@ -69,31 +68,32 @@
   input:checked + .slider { background-color: #4caf50; }
   input:checked + .slider:before { transform: translateX(22px); }
 
-  /* MAPA DEA */
-  #dea-map-container { flex: 1; border-radius: 15px; overflow: hidden; border: 2px solid #1e88e5; margin: 15px 0; position: relative; background: #111; }
-  #dea-map-container iframe { width: 100%; height: 100%; border: none; }
+  #dea-map-container { flex: 1; min-height: 300px; border-radius: 15px; overflow: hidden; border: 2px solid #1e88e5; margin: 15px 0; position: relative; background: #111; }
+  #dea-map-container iframe { width: 100%; height: 100%; min-height: 300px; border: none; }
   .dea-loading { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #aaa; text-align: center; }
   
   .app-footer { text-align: center; color: #555; font-size: 0.75rem; padding: 20px; margin-top: auto; }
+  
+  /* Banner de instalación PWA */
+  #installBanner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #1e88e5; color: white; padding: 15px; text-align: center; font-weight: bold; cursor: pointer; z-index: 1000; }
+  #installBanner.show { display: block; }
 </style>
 </head>
 <body>
 
-<!-- INICIO -->
 <div id="home" class="view active">
   <div class="logo-icon">🫀</div>
   <h1>SALVADOR <span>C.E.</span></h1>
   <div class="subtitle">Cardio-Emergencia</div>
   
-  <button class="btn btn-sos" onclick="showView('sos'); startSOS()">🆘 EMERGENCIA<br><small style="font-size:0.7em;font-weight:normal">Alguien no responde</small></button>
+  <button class="btn btn-sos" onclick="showView('sos'); startSOS()"> EMERGENCIA<br><small style="font-size:0.7em;font-weight:normal">Alguien no responde</small></button>
   <button class="btn btn-learn" onclick="showView('learn')">📚 APRENDER A SALVAR VIDAS</button>
   <button class="btn btn-secondary" onclick="showView('settings')">⚙️ Configuración y País</button>
   <button class="btn btn-secondary" onclick="showView('dea')">📍 Buscar DEA Cercano</button>
   
-  <div class="app-footer">v2.0 · Funciona sin internet · No sustituye curso certificado</div>
+  <div class="app-footer">v3.0 PWA · Funciona sin internet · No sustituye curso certificado</div>
 </div>
 
-<!-- MODO SOS -->
 <div id="sos" class="view">
   <div class="sos-header">
     <button class="btn-back" onclick="stopSOS(); showView('home')">← Salir</button>
@@ -120,7 +120,6 @@
   </div>
 </div>
 
-<!-- APRENDER -->
 <div id="learn" class="view">
   <button class="btn-back" onclick="showView('home')">← Volver</button>
   <h2 style="color:#ff3b3b;margin-bottom:5px">🫀 Aprende con Salvador C.E.</h2>
@@ -146,7 +145,6 @@
   <button class="btn btn-sos" style="margin-top:15px" onclick="showView('sos'); startSOS()">🆘 PRACTICAR MODO EMERGENCIA</button>
 </div>
 
-<!-- CONFIGURACIÓN -->
 <div id="settings" class="view">
   <button class="btn-back" onclick="showView('home')">← Volver</button>
   <h2 style="color:#1e88e5;margin-bottom:20px">⚙️ Configuración</h2>
@@ -154,18 +152,18 @@
   <div class="settings-row">
     <label>🌍 Número de Emergencia</label>
     <select id="countrySelect" onchange="updateEmergencyNumber()">
-      <option value="911">🇺🇸/🇲🇽/🇨🇴 911</option>
+      <option value="911">🇺🇸/🇽/🇨🇴 911</option>
       <option value="112">🇪🇸/🇪🇺 112</option>
-      <option value="065">🇦🇷 065 (SAME)</option>
+      <option value="065">🇷 065 (SAME)</option>
       <option value="131">🇨🇱 131</option>
-      <option value="133">🇨🇱 133</option>
-      <option value="123">🇨🇴 123</option>
+      <option value="133">🇱 133</option>
+      <option value="123">🇴 123</option>
       <option value="999">🇬🇧 999</option>
     </select>
   </div>
   
   <div class="settings-row">
-    <label>🗣️ Guía por Voz</label>
+    <label>️ Guía por Voz</label>
     <div class="toggle-voice">
       <label class="switch">
         <input type="checkbox" id="voiceToggle" checked onchange="toggleVoice()">
@@ -176,11 +174,10 @@
   </div>
   
   <p style="color:#666;font-size:0.85rem;margin-top:20px;line-height:1.5">
-    💡 <strong>Tip PWA:</strong> En tu celular, usa el menú del navegador y selecciona "Agregar a pantalla de inicio" para usar Salvador C.E. como una app real sin barra de navegación.
+    💡 <strong>Instalar como app:</strong> En el menú del navegador selecciona "Agregar a pantalla de inicio" o "Instalar app". Una vez instalada, funcionará <strong>sin internet</strong>.
   </p>
 </div>
 
-<!-- MAPA DEA -->
 <div id="dea" class="view">
   <button class="btn-back" onclick="showView('home')">← Volver</button>
   <h2 style="color:#1e88e5;margin-bottom:5px">📍 Desfibriladores (DEA) Cercanos</h2>
@@ -192,16 +189,43 @@
   </div>
   
   <button class="btn btn-secondary" onclick="findDEA()">🔄 Actualizar Ubicación</button>
-  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center">Mapa proporcionado por OpenStreetMap. Verifica siempre la disponibilidad del equipo.</p>
+  <p style="color:#666;font-size:0.8rem;margin-top:10px;text-align:center">Mapa por OpenStreetMap. Requiere internet solo para cargar el mapa.</p>
 </div>
 
+<div id="installBanner" onclick="installApp()">📲 Toca aquí para instalar Salvador C.E. como app</div>
+
 <script>
-  // ESTADO DE LA APP
+  // ===== REGISTRO DEL SERVICE WORKER (MODO OFFLINE) =====
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('SW registrado', reg.scope))
+      .catch(err => console.log('SW error', err));
+  }
+
+  // ===== LÓGICA DE INSTALACIÓN PWA =====
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('installBanner').classList.add('show');
+  });
+
+  function installApp() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(() => {
+        deferredPrompt = null;
+        document.getElementById('installBanner').classList.remove('show');
+      });
+    }
+  }
+
+  // ===== DATOS DE LA APP =====
   const steps = [
     { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros fuerte y grita: ¿Estás bien? Mira si respira." },
     { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda. Llama a emergencias. Activa el altavoz. Pide un DEA." },
-    { icon: "👐", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos." },
-    { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
+    { icon: "", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho. Otra mano encima, dedos entrelazados. Brazos rectos." },
+    { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido: 5 a 6 centímetros de profundidad. Al ritmo del metrónomo. Deja que el pecho suba.", metronome: true },
     { icon: "🔁", text: "No te detengas", detail: "Sigue hasta que llegue la ambulancia, la persona reaccione, o estés agotado. Cambia cada 2 minutos." }
   ];
   
@@ -210,9 +234,8 @@
   let audioCtx = null;
   let compCount = 0;
   let emergencyNumber = localStorage.getItem('salvador_emergency') || '911';
-  let voiceEnabled = localStorage.getItem('salvador_voice') !== 'false'; // true por defecto
+  let voiceEnabled = localStorage.getItem('salvador_voice') !== 'false';
   
-  // INICIALIZACIÓN
   document.getElementById('countrySelect').value = emergencyNumber;
   document.getElementById('emergencyNumDisplay').textContent = emergencyNumber;
   document.getElementById('voiceToggle').checked = voiceEnabled;
@@ -223,6 +246,7 @@
     document.getElementById(id).classList.add('active');
     if (id === 'dea') findDEA();
     if (id !== 'sos') stopSOS();
+    window.scrollTo(0, 0);
   }
 
   function updateEmergencyNumber() {
@@ -296,7 +320,6 @@
     window.location.href = `tel:${emergencyNumber}`;
   }
 
-  // METRÓNOMO
   function startMetronome() {
     if (metronomeInterval) return;
     if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -332,7 +355,6 @@
     if (metronomeInterval) { clearInterval(metronomeInterval); metronomeInterval = null; }
   }
 
-  // MAPA DEA (Geolocalización + OpenStreetMap)
   function findDEA() {
     const loading = document.getElementById('deaLoading');
     const map = document.getElementById('deaMap');
@@ -348,7 +370,6 @@
       (position) => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
-        // OpenStreetMap embed con marcador en la ubicación del usuario
         const bbox = `${lon-0.01},${lat-0.01},${lon+0.01},${lat+0.01}`;
         const url = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lon}`;
         map.src = url;
