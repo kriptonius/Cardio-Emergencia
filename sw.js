@@ -1,10 +1,11 @@
-const CACHE_NAME = 'salvador-ce-v4';
+const CACHE_NAME = 'salvador-ce-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './icon-192.png',
-  './icon-512.png'
+  './icon-512.png',
+  './rcp-manos.jpg'
 ];
 
 // INSTALAR: cachea los archivos esenciales
