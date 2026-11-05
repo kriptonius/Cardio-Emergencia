@@ -90,6 +90,7 @@
   #imgModal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2100; align-items: center; justify-content: center; padding: 10px; overflow: auto; }
   #imgModal.show { display: flex; }
   #imgModal img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px; }
+  .step-vid { width: 100%; max-width: 460px; max-height: 38vh; border-radius: 16px; background: #000; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -230,7 +231,7 @@
   const translations = {
     es: {
       steps: [
-        { icon: "👀", text: "Verifica si responde", detail: "Toca sus hombros y grita: ¿Estás bien?\nMira si respira (MÁXIMO 10 segundos)." },
+        { icon: "👀", vid: "rcp-verificar.mp4", text: "Verifica si responde", detail: "Toca sus hombros y grita: ¿Estás bien?\nMira si respira (MÁXIMO 10 segundos)." },
         { icon: "📞", text: "Pide ayuda YA", detail: "Grita pidiendo ayuda.\nLlama a emergencias.\nActiva el altavoz.\nPide un DEA." },
         { icon: "👐", img: "rcp-manos.jpg", text: "Posición de manos", detail: "Talón de la mano en el CENTRO del pecho (mitad del esternón).\nOtra mano encima, dedos entrelazados.\nBrazos rectos." },
         { icon: "💓", text: "¡COMPRESIONES!", detail: "Presiona fuerte y rápido:\n5 a 6 cm de profundidad.\nAl ritmo del metrónomo.\nDeja que el pecho suba.", metronome: true },
@@ -333,6 +334,9 @@
     if (step.img) {
       iconEl.innerHTML = '<img class="step-img" src="' + step.img + '" alt="' + step.text + '" onclick="openImg(this.src)">';
       contentEl.classList.add('has-img');
+    } else if (step.vid) {
+      iconEl.innerHTML = '<video class="step-vid" src="' + step.vid + '" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>';
+      contentEl.classList.remove('has-img');
     } else {
       iconEl.textContent = step.icon;
       contentEl.classList.remove('has-img');
